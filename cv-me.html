@@ -54,20 +54,31 @@
     .ss-download { width: fit-content; display: inline-flex; min-height: 52px; align-items: center; justify-content: center; margin-top: 34px; padding: 0 20px; background: var(--ink); color: #ffffff; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
     .ss-download:hover { background: var(--blue); }
 
-    .ss-section { padding: 80px 0; border-bottom: 1px solid var(--line); }
-    .ss-section h2 { margin: 0 0 30px; font-family: var(--font-display); font-size: clamp(34px, 5vw, 72px); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
-    .ss-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .ss-card { min-height: 230px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); position: relative; overflow: hidden; }
-    .ss-card, .ss-tool, .ss-card *, .ss-tool * { min-width: 0; }
-    .ss-card h3, .ss-card p, .ss-tool { overflow-wrap: anywhere; }
-    .ss-card:nth-child(2n) { background: var(--surface); }
-    .ss-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 7px; background: linear-gradient(90deg, var(--blue), var(--pink), var(--orange)); }
-    .ss-card h3 { margin: 0 0 14px; font-family: var(--font-serif); font-size: clamp(26px, 2.8vw, 34px); line-height: 1.04; font-weight: 400; }
-    .ss-card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
-    .ss-chip-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .ss-chip { padding: 10px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
-    .ss-tool-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .ss-tool { min-height: 108px; display: grid; place-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-align: center; font-weight: 900; }
+    .ss-section { padding: 82px 0; border-bottom: 1px solid var(--line); }
+    .ss-section-head { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.45fr); gap: 36px; align-items: end; margin-bottom: 38px; }
+    .ss-section h2 { margin: 0; font-family: var(--font-display); font-size: clamp(34px, 5vw, 72px); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
+    .ss-section-intro { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+    .ss-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .ss-card { min-height: 180px; display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 18px; align-content: start; padding: 26px 24px; border-bottom: 1px solid var(--line); background: transparent; }
+    .ss-card:nth-child(odd) { border-right: 1px solid var(--line); }
+    .ss-card-number { color: var(--blue); font-size: 11px; font-weight: 900; letter-spacing: 0.12em; }
+    .ss-card h3 { margin: 0 0 12px; font-family: var(--font-serif); font-size: clamp(25px, 2.5vw, 34px); line-height: 1.04; font-weight: 400; }
+    .ss-card p { margin: 0; max-width: 480px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+    .ss-tool-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .ss-tool-group { min-width: 0; padding: 26px; background: var(--surface); }
+    .ss-tool-group + .ss-tool-group { border-left: 1px solid var(--line); }
+    .ss-tool-group h3 { margin: 0 0 22px; color: var(--blue); font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    .ss-tool-list { display: grid; gap: 0; }
+    .ss-tool { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 44px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; font-weight: 750; }
+    .ss-tool::after { content: "+"; color: var(--muted); font-size: 15px; font-weight: 500; }
+
+    .ss-skill-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .ss-skill { min-width: 0; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; align-items: center; min-height: 62px; padding: 14px 18px; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 800; }
+    .ss-skill:nth-child(odd) { border-right: 1px solid var(--line); }
+    .ss-skill-number { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; }
+    .ss-card, .ss-tool, .ss-skill, .ss-card *, .ss-tool *, .ss-skill * { min-width: 0; overflow-wrap: anywhere; }
 
     .ss-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 30px 0; }
     .ss-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
@@ -75,15 +86,21 @@
 
     @media (max-width: 980px) {
       .ss-nav-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
-      .ss-card-grid { grid-template-columns: 1fr; }
-      .ss-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ss-section-head { grid-template-columns: 1fr; align-items: start; }
+      .ss-tool-groups { grid-template-columns: 1fr; }
+      .ss-tool-group + .ss-tool-group { border-left: 0; border-top: 1px solid var(--line); }
     }
 
     @media (max-width: 640px) {
       .ss-wrap, .ss-nav .ss-wrap { width: min(100% - 26px, 1180px); }
       .ss-hero { min-height: 500px; padding: 54px 0 44px; }
       .ss-title { font-size: clamp(58px, 20vw, 104px); }
-      .ss-tool-grid { grid-template-columns: 1fr; }
+      .ss-section { padding: 58px 0; }
+      .ss-card-grid, .ss-skill-list { grid-template-columns: 1fr; }
+      .ss-card:nth-child(odd), .ss-skill:nth-child(odd) { border-right: 0; }
+      .ss-card { grid-template-columns: 36px minmax(0, 1fr); padding: 22px 4px; }
+      .ss-tool-group { padding: 22px 18px; }
+      .ss-skill { padding-inline: 4px; }
     }
   </style>
 </head>
@@ -120,54 +137,54 @@
 
     <section class="ss-section">
       <div class="ss-wrap">
-        <h2>Areas I Work In</h2>
+        <div class="ss-section-head">
+          <h2>Areas I Work In</h2>
+          <p class="ss-section-intro">A practical mix of learning design, interface thinking, multimedia production and technical delivery.</p>
+        </div>
         <div class="ss-card-grid">
-          <article class="ss-card"><h3>Learning Design</h3><p>Structured modules, learner pathways, assessment support, UDL thinking and practical activity design.</p></article>
-          <article class="ss-card"><h3>LMS Build</h3><p>Moodle and Brightspace course spaces, completion logic, section structure, staff support and QA.</p></article>
-          <article class="ss-card"><h3>Multimedia</h3><p>Video editing, lightboard resources, visuals, infographics, motion graphics and media for learning.</p></article>
-          <article class="ss-card"><h3>UX / Web</h3><p>Navigation, content hierarchy, project pages, portfolio systems and Webflow/Framer-inspired layouts.</p></article>
-          <article class="ss-card"><h3>Interactive Learning</h3><p>H5P, Articulate-style flows, quizzes, branching activities and learner feedback moments.</p></article>
-          <article class="ss-card"><h3>Digital Workflow</h3><p>Process diagrams, tool testing, technical documentation and clearer systems for teams.</p></article>
+          <article class="ss-card"><span class="ss-card-number">01</span><div><h3>Learning Design</h3><p>Structured modules, learner pathways, assessment support, UDL thinking and practical activity design.</p></div></article>
+          <article class="ss-card"><span class="ss-card-number">02</span><div><h3>LMS Build</h3><p>Moodle and Brightspace course spaces, completion logic, section structure, staff support and QA.</p></div></article>
+          <article class="ss-card"><span class="ss-card-number">03</span><div><h3>Multimedia</h3><p>Video editing, lightboard resources, visuals, infographics, motion graphics and media for learning.</p></div></article>
+          <article class="ss-card"><span class="ss-card-number">04</span><div><h3>UX / Web</h3><p>Navigation, content hierarchy, project pages, portfolio systems and Webflow/Framer-inspired layouts.</p></div></article>
+          <article class="ss-card"><span class="ss-card-number">05</span><div><h3>Interactive Learning</h3><p>H5P, Articulate-style flows, quizzes, branching activities and learner feedback moments.</p></div></article>
+          <article class="ss-card"><span class="ss-card-number">06</span><div><h3>Digital Workflow</h3><p>Process diagrams, tool testing, technical documentation and clearer systems for teams.</p></div></article>
         </div>
       </div>
     </section>
 
     <section class="ss-section">
       <div class="ss-wrap">
-        <h2>Tools I Use</h2>
-        <div class="ss-tool-grid">
-          <div class="ss-tool">Moodle</div>
-          <div class="ss-tool">D2L Brightspace</div>
-          <div class="ss-tool">H5P</div>
-          <div class="ss-tool">Articulate / Rise</div>
-          <div class="ss-tool">Panopto</div>
-          <div class="ss-tool">Adobe Creative Cloud</div>
-          <div class="ss-tool">HTML / CSS</div>
-          <div class="ss-tool">Figma / Wireframes</div>
-          <div class="ss-tool">Fusion 360</div>
-          <div class="ss-tool">Rhino</div>
-          <div class="ss-tool">Canva</div>
-          <div class="ss-tool">WordPress</div>
+        <div class="ss-section-head">
+          <h2>Tools I Use</h2>
+          <p class="ss-section-intro">Platforms selected around the learning goal, production workflow and level of technical support required.</p>
+        </div>
+        <div class="ss-tool-groups">
+          <section class="ss-tool-group"><h3>Learning platforms</h3><div class="ss-tool-list"><div class="ss-tool">Moodle</div><div class="ss-tool">D2L Brightspace</div><div class="ss-tool">H5P</div><div class="ss-tool">Articulate / Rise</div></div></section>
+          <section class="ss-tool-group"><h3>Design and media</h3><div class="ss-tool-list"><div class="ss-tool">Adobe Creative Cloud</div><div class="ss-tool">Figma / Wireframes</div><div class="ss-tool">Panopto</div><div class="ss-tool">Canva</div></div></section>
+          <section class="ss-tool-group"><h3>Web and technical</h3><div class="ss-tool-list"><div class="ss-tool">HTML / CSS</div><div class="ss-tool">WordPress</div><div class="ss-tool">Fusion 360</div><div class="ss-tool">Rhino</div></div></section>
         </div>
       </div>
     </section>
 
     <section class="ss-section">
       <div class="ss-wrap">
-        <h2>Skills</h2>
-        <div class="ss-chip-list">
-          <span class="ss-chip">Learning experience design</span>
-          <span class="ss-chip">LMS administration</span>
-          <span class="ss-chip">Course mapping</span>
-          <span class="ss-chip">Activity design</span>
-          <span class="ss-chip">Video production</span>
-          <span class="ss-chip">Accessibility checks</span>
-          <span class="ss-chip">Stakeholder feedback</span>
-          <span class="ss-chip">UX writing</span>
-          <span class="ss-chip">Visual design</span>
-          <span class="ss-chip">Technical troubleshooting</span>
-          <span class="ss-chip">Documentation</span>
-          <span class="ss-chip">Project delivery</span>
+        <div class="ss-section-head">
+          <h2>Skills</h2>
+          <p class="ss-section-intro">Capabilities used across discovery, design, production, implementation and ongoing support.</p>
+        </div>
+        <div class="ss-skill-list">
+          <div class="ss-skill"><span class="ss-skill-number">01</span><span>Learning experience design</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">02</span><span>LMS administration</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">03</span><span>Course mapping</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">04</span><span>Activity design</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">05</span><span>Video production</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">06</span><span>Accessibility checks</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">07</span><span>Stakeholder feedback</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">08</span><span>UX writing</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">09</span><span>Visual design</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">10</span><span>Technical troubleshooting</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">11</span><span>Documentation</span></div>
+          <div class="ss-skill"><span class="ss-skill-number">12</span><span>Project delivery</span></div>
         </div>
       </div>
     </section>
