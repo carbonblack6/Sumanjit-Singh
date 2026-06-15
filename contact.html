@@ -70,6 +70,8 @@
     .ss-title { cursor: default; }
     .ss-title-word { position: relative; width: 100%; height: 0.9em; max-width: 100%; overflow: hidden; letter-spacing: -0.09em; background: none; animation: none; }
     .ss-word-current, .ss-word-next { position: absolute; inset: 0 auto auto 0; width: max-content; max-width: 100%; line-height: 0.88; background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue)); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ssColourMove 6.6s ease-in-out infinite alternate; will-change: transform, opacity; }
+    .ss-contact-card, .ss-contact-card * { min-width: 0; }
+    .ss-contact-card h2, .ss-contact-card label, .ss-contact-card p { overflow-wrap: anywhere; }
     .ss-word-current { transform: translateY(0); opacity: 1; }
     .ss-word-next { transform: translateY(105%); opacity: 0.25; }
     .ss-title.is-changing .ss-word-current { animation: ssWordOut 0.72s cubic-bezier(0.4, 0, 0.2, 1) both; }
@@ -224,13 +226,24 @@
     let phraseIndex = 0;
     let phraseTimer;
 
+    function fitWord(element) {
+      if (!element || !word) return;
+      element.style.fontSize = "1em";
+      const available = word.clientWidth;
+      const required = element.scrollWidth;
+      const scale = required > available ? Math.max(0.42, available / required) : 1;
+      element.style.fontSize = `${scale}em`;
+    }
+
     function showNextPhrase() {
       if (!title || !word || !currentWord || !nextWord || title.classList.contains("is-changing")) return;
       phraseIndex = (phraseIndex + 1) % phrases.length;
       nextWord.textContent = phrases[phraseIndex].text;
+      fitWord(nextWord);
       title.classList.add("is-changing");
       window.setTimeout(() => {
         currentWord.textContent = phrases[phraseIndex].text;
+        fitWord(currentWord);
         title.classList.remove("is-changing");
         nextWord.textContent = "";
       }, 720);
@@ -252,6 +265,8 @@
     title?.addEventListener("focus", startPhrases);
     title?.addEventListener("blur", stopPhrases);
     title?.addEventListener("click", showNextPhrase);
+    window.addEventListener("resize", () => fitWord(currentWord));
+    fitWord(currentWord);
   </script>
 </body>
 </html>
