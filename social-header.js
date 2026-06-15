@@ -1,21 +1,15 @@
 const socialProfiles = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://au.linkedin.com/in/sumanjitsingh",
     color: "#0a66c2",
     icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
   },
   {
     label: "Behance",
-    href: "https://www.behance.net/",
+    href: "https://www.behance.net/Carbon_Black_Design",
     color: "#1769ff",
     icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/behance.svg"
-  },
-  {
-    label: "ArtStation",
-    href: "https://www.artstation.com/",
-    color: "#13aff0",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/artstation.svg"
   }
 ];
 
