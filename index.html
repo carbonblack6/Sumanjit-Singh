@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+<head>http://127.0.0.1:3000/index.html#top
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sumanjit Singh</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f9fc;
+    --surface-warm: #fff8f3;
+    --cream: #f6f1e8;
+    --ink: #101114;
+    --muted: rgba(16,17,20,0.66);
+    --line: rgba(16,17,20,0.13);
+    --blue: #1f5eff;
+    --blue-dark: #17358f;
+    --pink: #e94d96;
+    --orange: #f26a2e;
+    --lime: #d8ff36;
+    --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-serif: Georgia, "Times New Roman", serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+  }
+
+  .ss-top {
+    width: 100%;
+    background: var(--bg);
+  }
+
+  .ss-wrap {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .ss-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: var(--bg);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ss-nav .ss-wrap {
+    width: calc(100% - 48px);
+  }
+
+  .ss-nav-inner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .ss-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .ss-brand-text strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.6vw, 34px);
+    line-height: 0.9;
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .ss-brand-text span {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ss-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .ss-nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.14s ease;
+  }
+
+  .ss-nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 4px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.12s ease;
+  }
+
+  .ss-nav-links a:hover {
+    color: var(--blue);
+  }
+
+  .ss-nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .ss-hero {
+    min-height: 620px;
+    padding: 78px 0 64px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%),
+      radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%),
+      var(--cream);
+  }
+
+  .ss-title {
+    margin: 0;
+    max-width: 1050px;
+    font-size: clamp(66px, 12vw, 172px);
+    line-height: 0.74;
+    letter-spacing: -0.125em;
+    font-weight: 950;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .ss-title span {
+    display: block;
+  }
+
+  .ss-title .outline {
+    color: transparent;
+    -webkit-text-stroke: 1.6px var(--ink);
+    text-stroke: 1.6px var(--ink);
+  }
+
+  .ss-title .colour-change {
+    background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue));
+    background-size: 260% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: ssColourMove 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes ssColourMove {
+    from {
+      background-position: 0% 50%;
+    }
+
+    to {
+      background-position: 100% 50%;
+    }
+  }
+
+  .ss-proof {
+    background: #ffffff;
+    padding: 76px 0 92px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ss-proof-copy {
+    max-width: 880px;
+    margin: 0 0 42px;
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.16;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .ss-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(130px, 1fr));
+    gap: 28px;
+    justify-items: center;
+    align-items: start;
+    max-width: 980px;
+    margin: 0;
+  }
+
+  .ss-stat {
+    width: 100%;
+  }
+
+  .ss-stat strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .ss-stat span {
+    display: block;
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .ss-work {
+    background: var(--bg);
+    padding: 94px 0 110px;
+  }
+
+  .ss-section-head {
+    max-width: 760px;
+    margin-bottom: 34px;
+  }
+
+  .ss-section-kicker {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 0.9;
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .ss-work-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .ss-featured-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: start;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ss-featured-card:nth-child(even) {
+    background: var(--surface);
+  }
+
+  .ss-project-visual {
+    position: relative;
+    min-height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(36,87,255,0.96), rgba(23,50,168,0.92)),
+      #101114;
+    color: #ffffff;
+    isolation: isolate;
+  }
+
+  .ss-project-visual.is-brightspace {
+    background:
+      linear-gradient(135deg, rgba(16,17,20,0.96), rgba(31,94,255,0.9)),
+      #101114;
+  }
+
+  .ss-project-visual.is-subjects {
+    background:
+      linear-gradient(135deg, rgba(23,53,143,0.96), rgba(242,106,46,0.9)),
+      #17358f;
+  }
+
+  .ss-project-visual.is-social {
+    background:
+      linear-gradient(135deg, rgba(23,53,143,0.98), rgba(255,78,184,0.94)),
+      #17358f;
+  }
+
+  .ss-project-visual.is-social::before {
+    background:
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.20), transparent 26%),
+      linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  .ss-more-projects {
+    justify-self: start;
+    margin-top: 4px;
+  }
+
+  .ss-screenshot-frame {
+    position: absolute;
+    inset: 24px;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 34px 1fr;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.26);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(12px);
+  }
+
+  .ss-screenshot-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .ss-screenshot-bar span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff;
+    opacity: 0.8;
+  }
+
+  .ss-screenshot-body {
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .ss-screenshot-panel,
+  .ss-screenshot-lines {
+    border-radius: 8px;
+    background: rgba(255,255,255,0.20);
+  }
+
+  .ss-screenshot-lines {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .ss-screenshot-lines span {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.78);
+  }
+
+  .ss-screenshot-lines span:nth-child(2) {
+    width: 72%;
+  }
+
+  .ss-screenshot-lines span:nth-child(3) {
+    width: 84%;
+  }
+
+  .ss-screenshot-lines span:nth-child(4) {
+    width: 58%;
+  }
+
+  .ss-project-eyebrow {
+    margin: 0 0 14px;
+    color: var(--blue);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ss-project-visual::before {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background:
+      linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0.55;
+  }
+
+  .ss-project-visual::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    right: -56px;
+    bottom: -54px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: -190px -170px 0 -70px var(--pink), -82px -44px 0 -26px var(--orange);
+  }
+
+  .ss-project-art-title {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    bottom: 32px;
+    z-index: 1;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.8vw, 64px);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .ss-project-art-title span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.78);
+    text-stroke: 1px rgba(255,255,255,0.78);
+  }
+
+  .ss-project-body {
+    max-width: 100%;
+  }
+
+  .ss-project-title {
+    margin: 0 0 18px;
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.02;
+    font-weight: 400;
+  }
+
+  .ss-project-copy,
+  .ss-project-role {
+    margin: 0;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.52;
+  }
+
+  .ss-project-role {
+    margin-top: 22px;
+    color: var(--muted);
+  }
+
+  .ss-project-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .ss-project-role-inline {
+    margin: 0;
+  }
+
+  .ss-case-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    min-height: 48px;
+    padding: 0 20px;
+    background: var(--ink);
+    color: #ffffff;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    transition: background 0.14s ease, color 0.14s ease, transform 0.14s ease;
+  }
+
+  .ss-case-link:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  .ss-language {
+    background: var(--bg);
+    padding: 0 0 58px;
+  }
+
+  .ss-language-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.55fr);
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 34px;
+  }
+
+  .ss-language-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 0.9;
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .ss-language-copy {
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .ss-language-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .ss-language-card {
+    min-height: 288px;
+    display: grid;
+    align-content: space-between;
+    gap: 22px;
+    padding: 22px;
+    border: 1px solid rgba(31,94,255,0.18);
+    border-radius: 8px;
+    background: #f4f7ff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ss-language-card::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: -72px;
+    top: -72px;
+    border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.12;
+  }
+
+  .ss-language-card:nth-child(2) {
+    border-color: rgba(242,106,46,0.22);
+    background: #fff5ee;
+  }
+
+  .ss-language-card:nth-child(2)::after {
+    background: var(--orange);
+  }
+
+  .ss-language-card:nth-child(3) {
+    border-color: rgba(233,77,150,0.22);
+    background: #fff2f8;
+  }
+
+  .ss-language-card:nth-child(3)::after {
+    background: var(--pink);
+  }
+
+  .ss-language-card:nth-child(4) {
+    border-color: rgba(23,53,143,0.22);
+    background: #f2f6ff;
+  }
+
+  .ss-language-card:nth-child(4)::after {
+    background: var(--blue-dark);
+  }
+
+  .ss-language-card:nth-child(5) {
+    border-color: rgba(216,255,54,0.48);
+    background: #fbffe8;
+  }
+
+  .ss-language-card:nth-child(5)::after {
+    background: var(--lime);
+    opacity: 0.24;
+  }
+
+  .ss-language-card:nth-child(6) {
+    border-color: rgba(16,17,20,0.18);
+    background: #f5f5f3;
+  }
+
+  .ss-language-card:nth-child(6)::after {
+    background: var(--ink);
+    opacity: 0.10;
+  }
+
+  .ss-language-number {
+    position: relative;
+    z-index: 1;
+    color: var(--blue-dark);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ss-language-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.2vw, 46px);
+    line-height: 0.9;
+    font-weight: 950;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+  }
+
+  .ss-language-card h3 span {
+    display: block;
+  }
+
+  .ss-language-card h3 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--ink);
+    text-stroke: 1px var(--ink);
+  }
+
+  .ss-language-card h3 .colour {
+    color: var(--blue);
+  }
+
+  .ss-language-card:nth-child(2) h3 {
+    letter-spacing: -0.015em;
+  }
+
+  .ss-language-card:nth-child(2) h3 .outline {
+    -webkit-text-stroke-color: var(--orange);
+    text-stroke-color: var(--orange);
+  }
+
+  .ss-language-card:nth-child(2) h3 .colour,
+  .ss-language-card:nth-child(2) .ss-language-number {
+    color: var(--orange);
+  }
+
+  .ss-language-card:nth-child(3) h3 {
+    font-size: clamp(28px, 3vw, 42px);
+    letter-spacing: -0.01em;
+  }
+
+  .ss-language-card:nth-child(3) h3 .outline {
+    -webkit-text-stroke-color: var(--pink);
+    text-stroke-color: var(--pink);
+  }
+
+  .ss-language-card:nth-child(3) h3 .colour,
+  .ss-language-card:nth-child(3) .ss-language-number {
+    color: var(--pink);
+  }
+
+  .ss-language-card:nth-child(4) h3 {
+    letter-spacing: -0.02em;
+  }
+
+  .ss-language-card:nth-child(4) h3 .outline {
+    -webkit-text-stroke-color: var(--blue-dark);
+    text-stroke-color: var(--blue-dark);
+  }
+
+  .ss-language-card:nth-child(4) h3 .colour,
+  .ss-language-card:nth-child(4) .ss-language-number {
+    color: var(--blue-dark);
+  }
+
+  .ss-language-card:nth-child(5) h3 {
+    font-size: clamp(27px, 2.8vw, 40px);
+    letter-spacing: -0.005em;
+  }
+
+  .ss-language-card:nth-child(5) h3 .outline {
+    -webkit-text-stroke-color: #6c8200;
+    text-stroke-color: #6c8200;
+  }
+
+  .ss-language-card:nth-child(5) h3 .colour,
+  .ss-language-card:nth-child(5) .ss-language-number {
+    color: #6c8200;
+  }
+
+  .ss-language-card:nth-child(6) h3 {
+    font-size: clamp(27px, 2.75vw, 39px);
+    letter-spacing: -0.01em;
+  }
+
+  .ss-language-card:nth-child(6) h3 .outline {
+    -webkit-text-stroke-color: var(--ink);
+    text-stroke-color: var(--ink);
+  }
+
+  .ss-language-card:nth-child(6) h3 .colour,
+  .ss-language-card:nth-child(6) .ss-language-number {
+    color: var(--ink);
+  }
+
+  .ss-language-card p {
+    position: relative;
+    z-index: 1;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .ss-collab {
+    background: var(--bg);
+    padding: 0;
+  }
+
+  .ss-collab .ss-wrap {
+    width: 100%;
+    max-width: none;
+  }
+
+  .ss-collab-panel {
+    min-height: 620px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    gap: 44px;
+    padding: clamp(34px, 7vw, 76px);
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%),
+      radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%),
+      var(--cream);
+  }
+
+  .ss-collab-panel::before {
+    content: none;
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 18px;
+    border: 0;
+    border-radius: 0;
+    background:
+      linear-gradient(90deg, var(--blue) 0 30%, var(--pink) 30% 70%, var(--orange) 70% 100%);
+  }
+
+  .ss-collab-panel::after {
+    content: none;
+    position: absolute;
+    inset: auto 0 -34px 0;
+    height: 34px;
+    background: var(--ink);
+  }
+
+  .ss-collab-kicker,
+  .ss-collab-title,
+  .ss-collab-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ss-collab-kicker {
+    margin: 0;
+    color: var(--blue);
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .ss-collab-title {
+    max-width: 900px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(54px, 10vw, 146px);
+    line-height: 0.82;
+    font-weight: 950;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+
+  .ss-collab-title span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--ink);
+    text-stroke: 1px var(--ink);
+  }
+
+  .ss-collab-link {
+    width: fit-content;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.4vw, 18px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 4px solid var(--blue);
+    transition: color 0.14s ease, border-color 0.14s ease;
+  }
+
+  .ss-collab-link span {
+    display: inline-block;
+    color: inherit;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+  }
+
+  .ss-collab-link:hover {
+    color: var(--blue);
+    border-color: var(--orange);
+  }
+
+  .ss-collab-link:hover span {
+    color: inherit;
+  }
+
+  .ss-footer {
+    background: var(--bg);
+    color: var(--ink);
+    border-top: 0;
+    padding: 30px 0;
+    position: relative;
+  }
+
+  .ss-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .ss-footer-brand {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .ss-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .ss-footer-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ss-footer-links a:hover {
+    color: var(--orange);
+  }
+
+  @media (max-width: 980px) {
+    .ss-nav-inner {
+      min-height: auto;
+      padding: 14px 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .ss-nav-links {
+      justify-content: flex-start;
+    }
+
+    .ss-stats {
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      row-gap: 34px;
+    }
+
+    .ss-work-list {
+      grid-template-columns: 1fr;
+    }
+
+    .ss-project-body {
+      max-width: none;
+    }
+
+    .ss-language-head {
+      grid-template-columns: 1fr;
+    }
+
+    .ss-language-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ss-wrap {
+      width: min(100% - 26px, 1180px);
+    }
+
+    .ss-hero {
+      min-height: 500px;
+      padding: 54px 0 44px;
+    }
+
+    .ss-title {
+      font-size: clamp(58px, 20vw, 104px);
+    }
+
+    .ss-proof {
+      padding: 54px 0 68px;
+    }
+
+    .ss-work {
+      padding: 64px 0 76px;
+    }
+
+    .ss-featured-card {
+      padding: 16px;
+      gap: 25px;
+    }
+
+    .ss-project-visual {
+      min-height: 230px;
+    }
+
+    .ss-proof-copy {
+      margin-bottom: 36px;
+    }
+
+    .ss-stat span {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .ss-nav .ss-wrap {
+      width: calc(100% - 26px);
+    }
+
+    .ss-nav-links {
+      gap: 16px;
+    }
+
+    .ss-nav-links a {
+      font-size: 12px;
+    }
+
+    .ss-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .ss-language {
+      padding-bottom: 44px;
+    }
+
+    .ss-language-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ss-collab-panel {
+      min-height: 420px;
+      border-radius: 0;
+    }
+
+    .ss-project-copy,
+    .ss-project-role {
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="ss-top">
+  <nav class="ss-nav">
+    <div class="ss-wrap ss-nav-inner">
+      <a class="ss-brand" href="#top">
+        <span class="ss-brand-text">
+          <strong>Sumanjit Singh</strong>
+          <span>Learning / UX / Multimedia</span>
+        </span>
+      </a>
+
+      <div class="ss-nav-links">
+        <a href="#top" aria-current="page">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ss-hero" id="top">
+    <div class="ss-wrap">
+      <h1 class="ss-title">
+        <span>Design</span>
+        <span class="outline">Experience</span>
+        <span class="colour-change">Learn.</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="ss-proof" aria-label="Experience summary">
+    <div class="ss-wrap">
+      <p class="ss-proof-copy">
+        I create digital learning spaces, interactive activities, videos, visuals and LMS experiences that help learners understand complex ideas through structure, motion, design and practical technology.
+      </p>
+
+      <div class="ss-stats">
+        <div class="ss-stat">
+          <strong>5+</strong>
+          <span>Years Experience</span>
+        </div>
+
+        <div class="ss-stat">
+          <strong>20+</strong>
+          <span>Projects Delivered</span>
+        </div>
+
+        <div class="ss-stat">
+          <strong>5+</strong>
+          <span>Industries Served</span>
+        </div>
+
+        <div class="ss-stat">
+          <strong>3</strong>
+          <span>Systems Migrations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ss-work" id="projects">
+    <div class="ss-wrap">
+      <div class="ss-section-head">
+        <div>
+          <p class="ss-section-kicker">Featured Work</p>
+        </div>
+      </div>
+
+      <div class="ss-work-list">
+        <article class="ss-featured-card">
+          <div class="ss-project-visual" aria-label="Passport to Maths project visual">
+            <h3 class="ss-project-art-title">
+              Learning
+              <span>Becomes</span>
+              Interface
+            </h3>
+          </div>
+
+          <div class="ss-project-body">
+            <h3 class="ss-project-title">Passport to Maths</h3>
+            <p class="ss-project-copy">
+              A self-paced learning experience using structured lessons, diagnostic activities, lightboard videos, visual explanations and supported maths activities.
+            </p>
+            <div class="ss-project-meta">
+              <p class="ss-project-role-inline">Role: Learning Experience Designer / Multimedia Lead</p>
+            </div>
+            <a class="ss-case-link" href="projects.html#passport-to-maths">View Case Study</a>
+          </div>
+        </article>
+
+        <article class="ss-featured-card">
+          <div class="ss-project-visual is-social" aria-label="Year 7 social media awareness project visual">
+            <h3 class="ss-project-art-title">
+              Safe
+              <span>Online</span>
+              Choices
+            </h3>
+          </div>
+
+          <div class="ss-project-body">
+            <h3 class="ss-project-title">Year 7 Social Media Awareness Module</h3>
+            <p class="ss-project-copy">
+              A structured Moodle module helping Year 7 students understand online behaviour, safety and responsible digital participation through five learning sections, interactive activities and a completion certificate.
+            </p>
+            <div class="ss-project-meta">
+              <p class="ss-project-role-inline">Role: Learning Designer</p>
+            </div>
+            <a class="ss-case-link" href="projects.html#social-media">View Case Study</a>
+          </div>
+        </article>
+
+        <article class="ss-featured-card">
+          <div class="ss-project-visual is-brightspace" aria-label="Brightspace learning design support visual">
+            <h3 class="ss-project-art-title">
+              Clear
+              <span>Learning</span>
+              Systems
+            </h3>
+          </div>
+
+          <div class="ss-project-body">
+            <h3 class="ss-project-title">VU Brightspace Learning Design Support</h3>
+            <p class="ss-project-copy">
+              Supported online unit spaces with clearer structure, assessment flow, staff guidance and learning technology troubleshooting.
+            </p>
+            <div class="ss-project-meta">
+              <p class="ss-project-role-inline">Role: Learning Design Support Officer</p>
+            </div>
+            <a class="ss-case-link" href="projects.html#block-model">View Case Study</a>
+          </div>
+        </article>
+
+        <article class="ss-featured-card">
+          <div class="ss-project-visual is-subjects" aria-label="Subject selection UX project visual">
+            <h3 class="ss-project-art-title">
+              Choice
+              <span>Needs</span>
+              Structure
+            </h3>
+          </div>
+
+          <div class="ss-project-body">
+            <h3 class="ss-project-title">Subject Selection UX in Moodle</h3>
+            <p class="ss-project-copy">
+              Redesigned a school subject-selection space with better navigation, content hierarchy, cards, buttons and support prompts.
+            </p>
+            <div class="ss-project-meta">
+              <p class="ss-project-role-inline">Role: UX / Moodle Design Support</p>
+            </div>
+            <a class="ss-case-link" href="projects.html#subject-selection">View Case Study</a>
+          </div>
+        </article>
+      </div>
+      <a class="ss-case-link ss-more-projects" href="projects.html">More projects</a>
+    </div>
+  </section>
+
+  <section class="ss-language" id="design">
+    <div class="ss-wrap">
+      <div class="ss-language-head">
+        <h2 class="ss-language-title">Explore My Design Language</h2>
+        <p class="ss-language-copy">
+          Visual statements for how learning, interface thinking, motion and structure can work together.
+        </p>
+      </div>
+
+      <div class="ss-language-grid">
+        <article class="ss-language-card">
+          <span class="ss-language-number">01 / Portfolio Statement</span>
+          <div>
+            <h3>
+              <span>Design</span>
+              <span class="outline">Experience</span>
+              <span class="colour">Learn</span>
+            </h3>
+            <p>Creating learning experiences where structure, interface and visual design work together.</p>
+          </div>
+        </article>
+
+        <article class="ss-language-card">
+          <span class="ss-language-number">02 / Learning + Motion</span>
+          <div>
+            <h3>
+              <span>Design</span>
+              <span class="outline">moves</span>
+              <span class="colour">Learning</span>
+            </h3>
+            <p>Digital learning should not sit still - it should guide, respond and make ideas feel clear.</p>
+          </div>
+        </article>
+
+        <article class="ss-language-card">
+          <span class="ss-language-number">03 / Academic Interaction</span>
+          <div>
+            <h3>
+              <span>Structured</span>
+              <span class="outline">Learning</span>
+              <span class="colour">interacts</span>
+            </h3>
+            <p>Academic content becomes stronger when learners can see, test, practise and receive feedback.</p>
+          </div>
+        </article>
+
+        <article class="ss-language-card">
+          <span class="ss-language-number">04 / Interface Thinking</span>
+          <div>
+            <h3>
+              <span>Learning</span>
+              <span class="outline">becomes</span>
+              <span class="colour">Interface</span>
+            </h3>
+            <p>The LMS is not just a container - it is the interface between content, people and progress.</p>
+          </div>
+        </article>
+
+        <article class="ss-language-card">
+          <span class="ss-language-number">05 / Visual Learning</span>
+          <div>
+            <h3>
+              <span>Designing</span>
+              <span class="outline">Learning</span>
+              <span class="colour">in motion</span>
+            </h3>
+            <p>Video, motion, layout and interaction can turn difficult content into an experience learners can follow.</p>
+          </div>
+        </article>
+
+        <article class="ss-language-card">
+          <span class="ss-language-number">06 / Activity Design</span>
+          <div>
+            <h3>
+              <span>Interactive</span>
+              <span class="outline">Structured</span>
+              <span class="colour">learning</span>
+            </h3>
+            <p>Good learning design gives people a clear path, meaningful actions and feedback at the right moment.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ss-collab">
+    <div class="ss-wrap">
+      <div class="ss-collab-panel">
+        <p class="ss-collab-kicker">Let's collaborate</p>
+        <h2 class="ss-collab-title">
+          Have a project
+          <span>in mind?</span>
+        </h2>
+        <a class="ss-collab-link" href="contact.html">Let's create a digital learning experience.</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ss-footer" id="contact">
+    <div class="ss-wrap ss-footer-inner">
+      <p class="ss-footer-brand">Sumanjit Singh</p>
+      <div class="ss-footer-links">
+        <a href="#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="social-header.js"></script>
+</body>
+</html>

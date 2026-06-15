@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects - Sumanjit Singh</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f9fc;
+      --surface-warm: #fff8f3;
+      --cream: #f6f1e8;
+      --ink: #101114;
+      --muted: rgba(16,17,20,0.66);
+      --line: rgba(16,17,20,0.13);
+      --blue: #1f5eff;
+      --blue-dark: #17358f;
+      --pink: #e94d96;
+      --orange: #f26a2e;
+      --lime: #d8ff36;
+      --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-display: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+    }
+
+    .ss-wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .ss-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ss-nav .ss-wrap {
+      width: calc(100% - 48px);
+    }
+
+    .ss-nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .ss-brand {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .ss-brand strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 34px);
+      line-height: 0.9;
+      font-weight: 950;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .ss-brand span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .ss-nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .ss-nav-links a,
+    .ss-footer-links a {
+      position: relative;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ss-nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 4px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.12s ease;
+    }
+
+    .ss-nav-links a:hover,
+    .ss-footer-links a:hover {
+      color: var(--blue);
+    }
+
+    .ss-nav-links a:hover::after,
+    .ss-nav-links a[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .ss-hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 78px 0 64px;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%),
+        radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%),
+        var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ss-eyebrow {
+      margin: 0 0 20px;
+      color: var(--blue);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .ss-title {
+      margin: 0;
+      max-width: 1050px;
+      font-family: var(--font-display);
+      font-size: clamp(66px, 12vw, 172px);
+      line-height: 0.74;
+      letter-spacing: -0.125em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .ss-title span {
+      display: block;
+    }
+
+    .ss-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--ink);
+      text-stroke: 1.5px var(--ink);
+    }
+
+    .ss-title .colour {
+      background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue));
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: ssColourMove 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes ssColourMove {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+
+    .ss-intro {
+      padding: 72px 0 38px;
+      background: var(--bg);
+    }
+
+    .ss-intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.6fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .ss-intro-copy {
+      margin: 0;
+      max-width: 880px;
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 1.16;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .ss-index {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ss-index a {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      font-weight: 900;
+    }
+
+    .ss-index a span {
+      color: var(--ink);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .ss-projects {
+      padding: 18px 0 96px;
+    }
+
+    .ss-project {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 54px 0;
+      margin-top: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .ss-project::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform-origin: left;
+      transition: height 0.16s ease, background 0.16s ease;
+    }
+
+    .ss-project:hover::before {
+      height: 3px;
+      background: var(--blue);
+    }
+
+    .ss-project-body {
+      display: grid;
+      gap: 24px;
+    }
+
+    .ss-project-head {
+      display: grid;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 0;
+    }
+
+    .ss-number {
+      display: none;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .ss-project-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.4vw, 64px);
+      line-height: 0.98;
+      font-weight: 400;
+    }
+
+    .ss-project-summary {
+      margin: 0;
+      max-width: 760px;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .ss-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .ss-detail {
+      padding: 0 0 18px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+    }
+
+    .ss-detail.wide {
+      grid-column: 1 / -1;
+    }
+
+    .ss-detail h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .ss-detail p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .ss-detail p + p {
+      margin-top: 12px;
+    }
+
+    .ss-detail strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .ss-artifacts {
+      margin: 0;
+      padding-left: 1.1rem;
+      list-style: disc;
+    }
+
+    .ss-artifacts li {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.55;
+      text-transform: none;
+    }
+
+    .ss-artifacts li + li {
+      margin-top: 6px;
+    }
+
+    .ss-artifacts a {
+      color: var(--ink);
+      font-weight: 900;
+      text-decoration-color: var(--blue);
+      text-underline-offset: 4px;
+    }
+
+    .ss-artifacts a:hover {
+      color: var(--blue);
+    }
+
+    .ss-artifact-preview {
+      margin-top: 18px;
+      max-width: 520px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      aspect-ratio: 16 / 7;
+    }
+
+    .ss-artifact-preview.is-video {
+      max-width: 640px;
+      aspect-ratio: 16 / 8.5;
+    }
+
+    .ss-artifact-preview iframe,
+    .ss-artifact-preview img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
+
+    .ss-footer {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+    }
+
+    .ss-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .ss-footer-brand {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .ss-footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .ss-nav-inner {
+        min-height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ss-nav-links {
+        justify-content: flex-start;
+      }
+
+      .ss-intro-grid,
+      .ss-project {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 640px) {
+      .ss-wrap,
+      .ss-nav .ss-wrap {
+        width: min(100% - 26px, 1180px);
+      }
+
+      .ss-hero { min-height: 500px; padding: 54px 0 44px; }
+      .ss-title { font-size: clamp(58px, 20vw, 104px); }
+
+      .ss-project {
+        padding: 42px 0;
+      }
+
+      .ss-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ss-artifact-preview {
+        max-width: none;
+        aspect-ratio: 16 / 8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="ss-nav">
+    <div class="ss-wrap ss-nav-inner">
+      <a class="ss-brand" href="index.html#top">
+        <strong>Sumanjit Singh</strong>
+        <span>Learning / UX / Multimedia</span>
+      </a>
+
+      <div class="ss-nav-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="ss-hero">
+      <div class="ss-wrap">
+        <h1 class="ss-title">
+          <span>Projects</span>
+          <span class="outline">Built for</span>
+          <span class="colour">Learning.</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="ss-intro">
+      <div class="ss-wrap ss-intro-grid">
+        <p class="ss-intro-copy">
+          A mix of Moodle builds, school UX, multimedia production, technical workflows and portfolio experiments.
+        </p>
+        <div class="ss-index" aria-label="Project index">
+          <a href="#passport-to-maths"><span>01</span> Passport to Maths (Monash College)</a>
+          <a href="#block-model"><span>02</span> Block Model - Digital Learning Redesign and LMS Support</a>
+          <a href="#subject-selection"><span>03</span> Subject Selection Site Redesign</a>
+          <a href="#social-media"><span>04</span> Year 7 Social Media Awareness Module</a>
+          <a href="#stubbify"><span>05</span> Stubbify Digital Media & 3D Workflow</a>
+          <a href="#website-experiments"><span>06</span> Website / UX / Digital Design Experiments</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-projects">
+      <div class="ss-wrap">
+        <article class="ss-project" id="passport-to-maths">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">01 / Monash College</span>
+              <h2 class="ss-project-title">1. Passport to Maths (Monash College)</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>At Monash College, I contributed to the award-recognised Passport to Maths program, which received Runner-Up for the ACODE Award for Excellence at the ASCILITE Conference. It was a self-paced Moodle learning experience designed to support students entering maths units with varied levels of prior knowledge. The project focused on improving diagnostic clarity, student engagement and accessibility through structured modules, visual explanations, interactive questions and clearer feedback.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>My Role & Contribution</h3>
+                <p>My role focused on improving the way maths content was presented online through video, visual design, Moodle content structure and activity support.</p>
+                <p>I helped create and refine lightboard video resources, edited learning videos, developed supporting visuals and infographics, and assisted with turning complex maths explanations into clearer digital learning materials.</p>
+                <p>Negotiating and remodeling our content as per stakeholder feedback requested changes and modifications was also a big part of the job.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Constraints</h3>
+                <p>The project needed to make technical maths content more accessible, engaging and easier to follow in an online self-paced format. A key challenge was balancing accurate maths content, complex STACK question logic, video production quality, accessibility requirements and a tight project timeline. Tight timeline; complex STACK logic; consistent accessibility across media.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Metrics</h3>
+                <p>Mathematics content had to be technically accurate, visually clear and easy for students to follow in Moodle. A text-heavy approach would not have supported the learner experience well enough.</p>
+                <p>Increase diagnostic completion; reduce recurring error patterns; provide cleaner placement signal.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Design 7 Build Strategy (Pedagogy + UX)</h3>
+                <p>I led the pedagogy and the end-to-end video production workflow so complex maths explanations worked as both learning design and polished media. That included scripting, lightboard staging, audio capture, lighting setup, teleprompter support, and post-production editing to create clear, accessible Moodle videos.</p>
+                <p>Production details covered key and fill lighting, background control, clean audio with lavalier and directional mics, prompter operation for smooth delivery, and editing with captions, visual annotations, pacing and quality checks. The goal was to make the maths content feel trustworthy, easy to follow and usable in a self-paced digital learning environment.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Outcome / Value</h3>
+                <p>The project helped transform maths preparation and diagnostic content into a more engaging and accessible online learning experience. Stronger diagnostic signal for placement.</p>
+                <p>My contribution helped improve the quality of video production and time management and consistency of the digital learning materials.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts</h3>
+                <ul class="ss-artifacts">
+                  <li><a href="https://www.youtube.com/watch?v=gBti7iH5fIE">Passport to Maths product explainer</a> - product explainer video reference.</li>
+                </ul>
+                <div class="ss-artifact-preview is-video">
+                  <iframe src="https://www.youtube.com/embed/gBti7iH5fIE" title="Passport to Maths product explainer video" loading="lazy" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="ss-detail wide">
+                <h3>What I'd Improve Next</h3>
+                <p>Adaptive branches by misconception category; A/B test hint timing and example density to improve student confidence and completion.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="block-model">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">02 / Victoria University</span>
+              <h2 class="ss-project-title">2. Block Model – Digital Learning Redesign and LMS Support (Victoria University)</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>At Victoria University, I supported the design, development and improvement of online learning spaces for units delivered through the VU Block Model. The work focused on helping teaching teams structure learning content, activities and assessments clearly within D2L Brightspace, while supporting consistent online delivery, student engagement and staff confidence with digital learning tools.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>My Role & Contribution</h3>
+                <p>I worked as a Learning Design Support Officer, collaborating with learning designers, educators, subject matter experts and project teams. My role sat across learning design support, LMS setup, content organisation, staff guidance, quality checking and digital learning troubleshooting.</p>
+                <p>I assisted with building and refining Brightspace unit spaces, organising learning materials, checking activity and assessment flow, and helping staff use tools such as H5P, Panopto, Turnitin, Zoom and other digital learning technologies. I also created help guides, supported online professional development sessions, responded to LMS and learning technology queries, and helped translate technical processes into clear instructions for teaching staff.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>The Challenge</h3>
+                <p>The Block Model required online units to be clear, consistent and easy for students to follow in a shorter, more focused teaching format. Staff needed support with LMS structure, assessment setup, digital tools and practical troubleshooting. A key challenge was balancing learning design quality, accessibility, staff capability, technology support and tight delivery timelines across multiple units.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Design & Build Approach</h3>
+                <p>The approach focused on creating clearer unit structures, improving the flow between learning materials, activities and assessments, and supporting staff to use digital tools in ways that improved teaching and learning. I helped organise content into logical sections, review pages for consistency, support H5P and multimedia use, and ensure resources were easier for students to access and navigate.</p>
+                <p>I also contributed to staff-facing support by preparing step-by-step guides, assisting with workshops and helping resolve common LMS issues. This work combined practical learning design, digital learning support, user experience thinking and LMS administration.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The project supported smoother online and blended delivery within the VU Block Model. It helped teaching staff improve the structure and usability of digital learning spaces, supported more consistent LMS delivery, and gave staff clearer guidance when using learning technologies. My contribution strengthened the connection between learning design, LMS support and practical staff capability building.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts to Show</h3>
+                <ul class="ss-artifacts">
+                  <li>Brightspace unit screenshots</li>
+                  <li>Module structure examples</li>
+                  <li>H5P activity examples</li>
+                  <li>Assessment layout examples</li>
+                  <li>Help guide screenshots</li>
+                  <li>Staff support resources</li>
+                  <li>Workshop slide examples</li>
+                  <li>LMS troubleshooting workflow</li>
+                  <li>Before-and-after page layout examples</li>
+                </ul>
+              </div>
+              <div class="ss-detail wide">
+                <h3>What I'd Improve Next</h3>
+                <p>I would create a stronger reusable unit template system, improve staff-facing quick-start guides, and use more learner analytics or support-ticket patterns to identify recurring design and technology issues earlier.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="subject-selection">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">03 / Padua College</span>
+              <h2 class="ss-project-title">3. Subject Selection Site Redesign — Padua College</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>At Padua College, I contributed to improving the online subject selection experience for students, families and staff. The work focused on making the subject selection space clearer, easier to navigate and more useful during the intake and course selection process. The project involved improving Moodle page structure, content hierarchy, navigation, buttons, cards and support information so users could better understand where to go and what action to take.</p>
+                <p>The work supported the subject selection workflow across multiple intake cycles and connected with systems and processes such as Moodle, Select My Subjects and SchoolData.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>My Role & Contribution</h3>
+                <p>My role focused on improving the digital learning and information experience inside Moodle. I helped redesign the subject selection area by reviewing the existing structure, identifying confusing or unclear sections, and creating a cleaner layout with clearer navigation, page sections and support points.</p>
+                <p>I created different visual layout options, improved page organisation, added clearer headings, cards and buttons, and helped make the space easier for students, families and staff to use. I also contributed to refining the content based on feedback and practical use during the subject selection cycle.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Constraints</h3>
+                <p>The site needed to support different users at the same time: students making choices, families trying to understand information, and staff managing the process. The challenge was to make the information clear without overloading the page.</p>
+                <p>The work also needed to fit within existing school systems, Moodle structure, school branding, and timelines connected to the subject selection process.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Success Metrics</h3>
+                <p>The main goal was to reduce confusion and make the subject selection process easier to follow.</p>
+                <p>Success could be measured through clearer navigation, fewer repeated questions, easier access to key information, smoother staff support, and a more consistent structure for future subject selection cycles.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Design & Build Strategy</h3>
+                <p>The design approach focused on information architecture, visual hierarchy and user flow.</p>
+                <p>I organised content into clearer sections, used headings and visual groupings to reduce cognitive load, and created a more structured Moodle page experience. Cards, buttons and support prompts were used to guide users toward the right information and actions.</p>
+                <p>The layout was designed to feel more like a guided digital experience rather than a long information page.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The redesigned subject selection space improved clarity, navigation and usability for students, families and staff. It created a more organised digital hub for subject selection information and gave the school a clearer structure that could be reused or refined for later intake cycles.</p>
+                <p>My contribution helped connect learning technology, UX thinking and school process improvement in a practical Moodle-based project.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts</h3>
+                <ul class="ss-artifacts">
+                  <li>Module or page screenshots</li>
+                  <li>Before/after layout comparison</li>
+                  <li>Navigation structure or sitemap</li>
+                  <li>Cards/buttons design examples</li>
+                  <li>Support/contact section screenshot</li>
+                  <li>Subject selection workflow diagram</li>
+                </ul>
+              </div>
+              <div class="ss-detail wide">
+                <h3>What I'd Improve Next</h3>
+                <p>I would add clearer analytics or feedback collection to understand which sections students and families use most. I would also improve the page with more guided pathways for different user groups, such as students, parents and staff.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="social-media">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">04 / Padua College</span>
+              <h2 class="ss-project-title">4. Year 7 Social Media Awareness Module — Padua College</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>At Padua College, I developed a Year 7 Social Media Awareness module in Moodle. The module was designed to support students in learning about online behaviour, safety, awareness and responsible digital participation through a structured online learning experience.</p>
+                <p>The project included five structured learning sections, interactive activities and a completion certificate. It was built to give students a clear pathway through the content while allowing staff to track progress and support completion.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>My Role & Contribution</h3>
+                <p>My role focused on structuring, building and refining the Moodle learning experience. I worked with the relevant staff and subject matter input to clarify the purpose of the module, organise the content into a logical sequence, build activities, test the student flow and check completion settings.</p>
+                <p>I helped turn the topic into a more engaging Moodle-based learning module rather than a static information page. I also supported the practical setup of activities and completion requirements so the experience could be delivered consistently to students.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Constraints</h3>
+                <p>The module needed to be age-appropriate for Year 7 students, easy to follow, and structured enough for staff to monitor. The content needed to be clear, simple and practical without becoming too text-heavy.</p>
+                <p>A key challenge was balancing student-friendly language, interactive learning, Moodle functionality, completion tracking and certificate settings within the available timeline.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Success Metrics</h3>
+                <p>The goal was to create a structured and accessible Moodle module that students could complete independently or with teacher guidance.</p>
+                <p>Success could be measured through student completion, staff sign-off, clear module progression, reduced confusion, and successful certificate generation after completion.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Design & Build Strategy</h3>
+                <p>The design approach focused on structured learning, interaction and completion flow.</p>
+                <p>The content was divided into five clear sections, with activities placed in a sequence that supported understanding and progression. Moodle completion settings were used to guide students through the module and support tracking.</p>
+                <p>Interactive activities helped move the module away from passive reading and toward a more active learning experience. The design also considered clarity, readability and practical use in a school environment.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The module provided a complete digital learning experience for Year 7 students and supported the school’s social media awareness education. It gave students a clearer structure for learning and gave staff a Moodle-based system for managing delivery and completion.</p>
+                <p>My contribution helped turn the content into a more usable, interactive and trackable learning module.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts</h3>
+                <ul class="ss-artifacts">
+                  <li>Module map or section overview</li>
+                  <li>Screenshots of the five Moodle sections</li>
+                  <li>Interactive activity examples</li>
+                  <li>Completion settings screenshot</li>
+                  <li>Certificate example</li>
+                  <li>Student flow diagram</li>
+                </ul>
+              </div>
+              <div class="ss-detail wide">
+                <h3>What I'd Improve Next</h3>
+                <p>I would add more scenario-based branching activities, short reflection questions and simple student feedback data to understand where students engage most or need more support.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="stubbify">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">05 / Multimedia + 3D</span>
+              <h2 class="ss-project-title">5. Stubbify Digital Media & 3D Workflow</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>At Stubbify, I worked across multimedia, product visualisation, CAD-related workflows and digital content production. The work included promotional videos, product visuals, photo editing, motion graphics, web content, 3D scanning research, reverse engineering exploration and CAD/design workflow support.</p>
+                <p>This project is useful for the portfolio because it shows your broader multimedia and technical design background outside education, especially where visual communication, product workflow and digital experimentation overlap.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>My Role & Contribution</h3>
+                <p>My role involved creating and supporting digital media assets, product visuals and technical design workflows. I worked on product photography, retouching, promotional video content, motion graphics, website assets and visual communication material.</p>
+                <p>I also researched and explored 3D scanning and reverse engineering workflows using tools and technologies such as Artec, Intel RealSense and other scanning systems. I worked with CAD and design-related tools including Fusion 360, Rhino, StyleCAD and pattern/design workflows connected to product development.</p>
+                <p>The work required both creative and technical thinking: making products look clear and professional while also supporting practical design and production processes.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Constraints</h3>
+                <p>The work often involved practical product and production constraints. Visual content needed to support real products, real workflows and real business needs. The challenge was not just to make visuals look good, but to make them useful for product communication, marketing, documentation or workflow improvement.</p>
+                <p>Another constraint was exploring new technical workflows, such as 3D scanning and reverse engineering, where the process needed testing, comparison and refinement.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Success Metrics</h3>
+                <p>The goal was to improve how products and workflows were visually communicated and supported digitally.</p>
+                <p>Success could be seen through clearer product visuals, better promotional material, stronger workflow documentation, improved understanding of 3D scanning options and more efficient digital production processes.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Design & Build Strategy</h3>
+                <p>The strategy combined multimedia production, technical testing and digital workflow design.</p>
+                <p>For media work, I focused on clean product presentation, visual clarity, editing quality and promotional usefulness. For technical workflow exploration, I researched scanning tools, tested possible workflows and looked at how physical product information could move into digital design processes.</p>
+                <p>The project connected creative production with practical problem-solving.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The work helped support Stubbify’s product communication, digital content and technical workflow exploration. It also built a bridge between multimedia design, CAD thinking, 3D scanning and product-focused visual storytelling.</p>
+                <p>For your portfolio, this project shows that your design background is not limited to LMS and education. It demonstrates visual production, technical curiosity, workflow design and hands-on multimedia capability.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts</h3>
+                <ul class="ss-artifacts">
+                  <li><a href="https://dingotrails.com.au/">Dingo Trails</a> - logo work, product photography, animations, retouching, transitions, infographics and broader multimedia production.</li>
+                </ul>
+              </div>
+              <div class="ss-detail wide">
+                <h3>What I'd Improve Next</h3>
+                <p>I would turn the 3D scanning and reverse engineering process into a cleaner documented workflow with clearer comparison tables, tool testing results and visual process diagrams. I would also create a short product/media reel showing the best visuals together.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="website-experiments">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">06 / Portfolio system</span>
+              <h2 class="ss-project-title">6. Website / UX / Digital Design Experiments</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p>The project includes portfolio layouts, WordPress sections, custom HTML/CSS, coded typography, interactive visual statements, project cards, navigation structures and Webflow/Framer-inspired layout ideas.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Role & Contribution</h3>
+                <p>I explored how to structure a homepage, present multiple skill areas, create visual project sections, and use typography, colour and layout to make the portfolio feel design-led.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Constraints</h3>
+                <p>The challenge was balancing learning design, LMS, UX, multimedia and technical design without becoming too text-heavy or looking like a resume page.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Metrics</h3>
+                <p>Create a portfolio system that is professional, visual, responsive, expandable and able to support deeper case study pages later.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Outcome / Value</h3>
+                <p>The project clarified the portfolio's design direction and produced reusable HTML/CSS sections for WordPress, GitHub Pages or Netlify.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Artifacts</h3>
+                <ul class="ss-artifacts">
+                  <li><a href="https://fencedepotmelbourne.com.au/">Fence Depot Melbourne</a> - logo design, website design, MYOB setup and supporting business systems setup.</li>
+                  <li><a href="https://topqualitytimber.com.au/">Top Quality Timber</a> - logo design, website design, MYOB setup and supporting business systems setup.</li>
+                  <li><a href="https://www.cafe445.com.au/">Cafe445</a> - website design, Square system setup, menu integration and backend configuration.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ss-footer">
+    <div class="ss-wrap ss-footer-inner">
+      <p class="ss-footer-brand">Sumanjit Singh</p>
+      <div class="ss-footer-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="social-header.js"></script>
+</body>
+</html>

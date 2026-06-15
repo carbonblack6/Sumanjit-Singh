@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV Me - Sumanjit Singh</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f9fc;
+      --surface-warm: #fff8f3;
+      --cream: #f6f1e8;
+      --ink: #101114;
+      --muted: rgba(16,17,20,0.66);
+      --line: rgba(16,17,20,0.13);
+      --blue: #1f5eff;
+      --blue-dark: #17358f;
+      --pink: #e94d96;
+      --orange: #f26a2e;
+      --lime: #d8ff36;
+      --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-display: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
+    .ss-wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .ss-nav { position: sticky; top: 0; z-index: 100; width: 100%; background: var(--bg); border-bottom: 1px solid var(--line); }
+    .ss-nav .ss-wrap { width: calc(100% - 48px); }
+    .ss-nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .ss-brand { color: var(--ink); text-decoration: none; }
+    .ss-brand strong { display: block; font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 34px); line-height: 0.9; font-weight: 950; letter-spacing: 0.02em; text-transform: uppercase; }
+    .ss-brand span { display: block; margin-top: 7px; color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: 0.12em; text-transform: uppercase; }
+    .ss-nav-links, .ss-footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .ss-nav-links a, .ss-footer-links a { position: relative; color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+    .ss-nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 4px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 0.12s ease; }
+    .ss-nav-links a:hover, .ss-footer-links a:hover { color: var(--blue); }
+    .ss-nav-links a:hover::after, .ss-nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+    .ss-hero { min-height: 620px; display: flex; align-items: center; padding: 78px 0 64px; background: radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%), radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%), var(--cream); border-bottom: 1px solid var(--line); }
+    .ss-cv-grid { display: grid; gap: 34px; align-items: start; }
+    .ss-eyebrow { margin: 0 0 20px; color: var(--blue); font-size: 14px; line-height: 1; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; }
+    .ss-title { margin: 0; max-width: 1050px; font-family: var(--font-display); font-size: clamp(66px, 12vw, 172px); line-height: 0.74; letter-spacing: -0.125em; font-weight: 950; text-transform: uppercase; }
+    .ss-title span { display: block; }
+    .ss-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); text-stroke: 1.5px var(--ink); }
+    .ss-title .colour { background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue)); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ssColourMove 6s ease-in-out infinite alternate; }
+    @keyframes ssColourMove {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+    .ss-download { width: fit-content; display: inline-flex; min-height: 52px; align-items: center; justify-content: center; margin-top: 34px; padding: 0 20px; background: var(--ink); color: #ffffff; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+    .ss-download:hover { background: var(--blue); }
+
+    .ss-section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+    .ss-section h2 { margin: 0 0 30px; font-family: var(--font-display); font-size: clamp(34px, 5vw, 72px); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
+    .ss-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .ss-card { min-height: 230px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); position: relative; overflow: hidden; }
+    .ss-card:nth-child(2n) { background: var(--surface); }
+    .ss-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 7px; background: linear-gradient(90deg, var(--blue), var(--pink), var(--orange)); }
+    .ss-card h3 { margin: 0 0 14px; font-family: var(--font-serif); font-size: clamp(26px, 2.8vw, 34px); line-height: 1.04; font-weight: 400; }
+    .ss-card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
+    .ss-chip-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .ss-chip { padding: 10px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+    .ss-tool-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .ss-tool { min-height: 108px; display: grid; place-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-align: center; font-weight: 900; }
+
+    .ss-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 30px 0; }
+    .ss-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .ss-footer-brand { margin: 0; font-family: var(--font-display); font-size: 18px; line-height: 1; font-weight: 950; letter-spacing: 0.02em; text-transform: uppercase; }
+
+    @media (max-width: 980px) {
+      .ss-nav-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
+      .ss-card-grid { grid-template-columns: 1fr; }
+      .ss-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .ss-wrap, .ss-nav .ss-wrap { width: min(100% - 26px, 1180px); }
+      .ss-hero { min-height: 500px; padding: 54px 0 44px; }
+      .ss-title { font-size: clamp(58px, 20vw, 104px); }
+      .ss-tool-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="ss-nav">
+    <div class="ss-wrap ss-nav-inner">
+      <a class="ss-brand" href="index.html#top">
+        <strong>Sumanjit Singh</strong>
+        <span>Learning / UX / Multimedia</span>
+      </a>
+      <div class="ss-nav-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html" aria-current="page">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="ss-hero">
+      <div class="ss-wrap ss-cv-grid">
+        <div>
+          <h1 class="ss-title">
+            <span>Learning</span>
+            <span class="outline">Designer</span>
+            <span class="colour">Builder.</span>
+          </h1>
+          <a class="ss-download" href="Sumajit-Singh-Resume.pdf" download>Download resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="ss-wrap">
+        <h2>Areas I Work In</h2>
+        <div class="ss-card-grid">
+          <article class="ss-card"><h3>Learning Design</h3><p>Structured modules, learner pathways, assessment support, UDL thinking and practical activity design.</p></article>
+          <article class="ss-card"><h3>LMS Build</h3><p>Moodle and Brightspace course spaces, completion logic, section structure, staff support and QA.</p></article>
+          <article class="ss-card"><h3>Multimedia</h3><p>Video editing, lightboard resources, visuals, infographics, motion graphics and media for learning.</p></article>
+          <article class="ss-card"><h3>UX / Web</h3><p>Navigation, content hierarchy, project pages, portfolio systems and Webflow/Framer-inspired layouts.</p></article>
+          <article class="ss-card"><h3>Interactive Learning</h3><p>H5P, Articulate-style flows, quizzes, branching activities and learner feedback moments.</p></article>
+          <article class="ss-card"><h3>Digital Workflow</h3><p>Process diagrams, tool testing, technical documentation and clearer systems for teams.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="ss-wrap">
+        <h2>Tools I Use</h2>
+        <div class="ss-tool-grid">
+          <div class="ss-tool">Moodle</div>
+          <div class="ss-tool">D2L Brightspace</div>
+          <div class="ss-tool">H5P</div>
+          <div class="ss-tool">Articulate / Rise</div>
+          <div class="ss-tool">Panopto</div>
+          <div class="ss-tool">Adobe Creative Cloud</div>
+          <div class="ss-tool">HTML / CSS</div>
+          <div class="ss-tool">Figma / Wireframes</div>
+          <div class="ss-tool">Fusion 360</div>
+          <div class="ss-tool">Rhino</div>
+          <div class="ss-tool">Canva</div>
+          <div class="ss-tool">WordPress</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="ss-wrap">
+        <h2>Skills</h2>
+        <div class="ss-chip-list">
+          <span class="ss-chip">Learning experience design</span>
+          <span class="ss-chip">LMS administration</span>
+          <span class="ss-chip">Course mapping</span>
+          <span class="ss-chip">Activity design</span>
+          <span class="ss-chip">Video production</span>
+          <span class="ss-chip">Accessibility checks</span>
+          <span class="ss-chip">Stakeholder feedback</span>
+          <span class="ss-chip">UX writing</span>
+          <span class="ss-chip">Visual design</span>
+          <span class="ss-chip">Technical troubleshooting</span>
+          <span class="ss-chip">Documentation</span>
+          <span class="ss-chip">Project delivery</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ss-footer">
+    <div class="ss-wrap ss-footer-inner">
+      <p class="ss-footer-brand">Sumanjit Singh</p>
+      <div class="ss-footer-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="social-header.js"></script>
+</body>
+</html>

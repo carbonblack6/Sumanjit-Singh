@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Explore - Sumanjit Singh</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f9fc;
+      --surface-warm: #fff8f3;
+      --cream: #f6f1e8;
+      --ink: #101114;
+      --muted: rgba(16,17,20,0.66);
+      --line: rgba(16,17,20,0.13);
+      --blue: #1f5eff;
+      --blue-dark: #17358f;
+      --pink: #e94d96;
+      --orange: #f26a2e;
+      --lime: #d8ff36;
+      --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-display: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
+    .ss-wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .ss-nav { position: sticky; top: 0; z-index: 100; width: 100%; background: var(--bg); border-bottom: 1px solid var(--line); }
+    .ss-nav .ss-wrap { width: calc(100% - 48px); }
+    .ss-nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .ss-brand { color: var(--ink); text-decoration: none; }
+    .ss-brand strong { display: block; font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 34px); line-height: 0.9; font-weight: 950; letter-spacing: 0.02em; text-transform: uppercase; }
+    .ss-brand span { display: block; margin-top: 7px; color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: 0.12em; text-transform: uppercase; }
+    .ss-nav-links, .ss-footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .ss-nav-links a, .ss-footer-links a { position: relative; color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+    .ss-nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 4px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 0.12s ease; }
+    .ss-nav-links a:hover, .ss-footer-links a:hover { color: var(--blue); }
+    .ss-nav-links a:hover::after, .ss-nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+    .ss-hero { min-height: 620px; display: flex; align-items: center; padding: 78px 0 64px; background: radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%), radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%), var(--cream); border-bottom: 1px solid var(--line); }
+    .ss-eyebrow { margin: 0 0 20px; color: var(--blue); font-size: 14px; line-height: 1; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; }
+    .ss-title { margin: 0; max-width: 1050px; font-family: var(--font-display); font-size: clamp(66px, 12vw, 172px); line-height: 0.74; letter-spacing: -0.125em; font-weight: 950; text-transform: uppercase; }
+    .ss-title span { display: block; }
+    .ss-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); text-stroke: 1.5px var(--ink); }
+    .ss-title .colour { background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue)); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ssColourMove 6s ease-in-out infinite alternate; }
+    @keyframes ssColourMove {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+
+    .ss-gallery { padding: 78px 0 100px; }
+    .ss-gallery-head { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr); gap: 34px; align-items: end; margin-bottom: 34px; }
+    .ss-gallery-head h2 { margin: 0; font-family: var(--font-display); font-size: clamp(34px, 5vw, 72px); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
+    .ss-gallery-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
+    .ss-artifact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .ss-artifact { min-height: 430px; display: grid; align-content: space-between; gap: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; position: relative; }
+    .ss-artifact:nth-child(3n+2),
+    .ss-artifact:nth-child(3n+3) { background: var(--surface); }
+    .ss-artifact::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: linear-gradient(90deg, var(--blue), var(--pink), var(--orange)); }
+    .ss-artifact-visual { min-height: 210px; display: grid; align-content: end; padding: 20px; border-radius: 8px; color: #ffffff; background: linear-gradient(135deg, var(--blue), var(--blue-dark)); position: relative; overflow: hidden; }
+    .ss-artifact:nth-child(2) .ss-artifact-visual { background: linear-gradient(135deg, #101114, var(--orange), var(--pink)); }
+    .ss-artifact:nth-child(3) .ss-artifact-visual { background: linear-gradient(135deg, var(--pink), var(--blue)); }
+    .ss-artifact:nth-child(4) .ss-artifact-visual { background: linear-gradient(135deg, var(--blue-dark), #101114, var(--lime)); }
+    .ss-artifact:nth-child(5) .ss-artifact-visual { background: linear-gradient(135deg, var(--orange), var(--pink)); }
+    .ss-artifact:nth-child(6) .ss-artifact-visual { background: linear-gradient(135deg, #101114, var(--blue)); }
+    .ss-artifact-visual::after { content: ""; position: absolute; right: -38px; top: -38px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+    .ss-artifact-visual strong { position: relative; z-index: 1; font-family: var(--font-display); font-size: clamp(34px, 5vw, 68px); line-height: 0.84; letter-spacing: -0.06em; text-transform: uppercase; }
+    .ss-artifact-meta { margin: 0; color: var(--blue); font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    .ss-artifact h3 { margin: 0; font-family: var(--font-serif); font-size: clamp(30px, 3.5vw, 52px); line-height: 0.98; font-weight: 400; }
+    .ss-artifact p { margin: 16px 0 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
+
+    .ss-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 30px 0; }
+    .ss-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .ss-footer-brand { margin: 0; font-family: var(--font-display); font-size: 18px; line-height: 1; font-weight: 950; letter-spacing: 0.02em; text-transform: uppercase; }
+
+    @media (max-width: 980px) {
+      .ss-nav-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
+      .ss-gallery-head, .ss-artifact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .ss-wrap, .ss-nav .ss-wrap { width: min(100% - 26px, 1180px); }
+      .ss-hero { min-height: 500px; padding: 54px 0 44px; }
+      .ss-title { font-size: clamp(58px, 20vw, 104px); }
+      .ss-artifact { min-height: 360px; padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="ss-nav">
+    <div class="ss-wrap ss-nav-inner">
+      <a class="ss-brand" href="index.html#top">
+        <strong>Sumanjit Singh</strong>
+        <span>Learning / UX / Multimedia</span>
+      </a>
+      <div class="ss-nav-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html" aria-current="page">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="ss-hero">
+      <div class="ss-wrap">
+        <h1 class="ss-title">
+          <span>Explore</span>
+          <span class="outline">Design</span>
+          <span class="colour">Language.</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="ss-gallery">
+      <div class="ss-wrap">
+        <div class="ss-gallery-head">
+          <h2>Learning Design Artifacts</h2>
+          <p>A two-column gallery for samples across interactive learning, Moodle, H5P, Articulate, video, UX flows and visual learning systems.</p>
+        </div>
+
+        <div class="ss-artifact-grid">
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>H5P</strong></div>
+            <div>
+              <p class="ss-artifact-meta">Interactive checks</p>
+              <h3>Knowledge checks and branching interactions</h3>
+              <p>Drag-and-drop tasks, scenario questions, hotspots, short quizzes and embedded practice moments designed to move learners from passive reading into action.</p>
+            </div>
+          </article>
+
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>Storyline</strong></div>
+            <div>
+              <p class="ss-artifact-meta">Articulate / Rise</p>
+              <h3>Microlearning modules and guided lessons</h3>
+              <p>Short self-paced modules with clear sections, checks for understanding, visual hierarchy and completion logic for workplace or school learning.</p>
+            </div>
+          </article>
+
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>Moodle</strong></div>
+            <div>
+              <p class="ss-artifact-meta">LMS structure</p>
+              <h3>Course shells, activity flows and completion design</h3>
+              <p>Reusable LMS layouts, section maps, activity sequencing, certificates, progress conditions and learner-friendly navigation patterns.</p>
+            </div>
+          </article>
+
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>Video</strong></div>
+            <div>
+              <p class="ss-artifact-meta">Lightboard / editing</p>
+              <h3>Visual explanation videos and supporting media</h3>
+              <p>Lightboard resources, short explainers, edited learning clips, captions, thumbnails and visual assets that make complex ideas easier to follow.</p>
+            </div>
+          </article>
+
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>UX</strong></div>
+            <div>
+              <p class="ss-artifact-meta">Learning journeys</p>
+              <h3>Maps, wireframes and learner pathways</h3>
+              <p>Content maps, journey flows, information architecture, student pathways, support prompts and before/after redesign thinking.</p>
+            </div>
+          </article>
+
+          <article class="ss-artifact">
+            <div class="ss-artifact-visual"><strong>Visuals</strong></div>
+            <div>
+              <p class="ss-artifact-meta">Design systems</p>
+              <h3>Infographics, icons and learning visuals</h3>
+              <p>Diagrams, module graphics, icon sets, activity visuals and typographic treatments for learning spaces that need clarity and energy.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ss-footer">
+    <div class="ss-wrap ss-footer-inner">
+      <p class="ss-footer-brand">Sumanjit Singh</p>
+      <div class="ss-footer-links">
+        <a href="index.html#top">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="design-explore.html">Design Explore</a>
+        <a href="cv-me.html">CV Me</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="social-header.js"></script>
+</body>
+</html>
