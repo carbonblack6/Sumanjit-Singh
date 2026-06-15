@@ -48,7 +48,7 @@
     .ss-contact .ss-wrap { width: 100%; max-width: none; }
     .ss-contact-grid { display: grid; gap: 46px; align-items: start; }
     .ss-eyebrow { margin: 0 0 20px; color: var(--blue); font-size: 14px; line-height: 1; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; }
-    .ss-title { margin: 0; max-width: 680px; font-family: var(--font-display); font-size: clamp(52px, 7.4vw, 106px); line-height: 0.82; letter-spacing: -0.08em; font-weight: 950; text-transform: uppercase; }
+    .ss-title { min-width: 0; margin: 0; max-width: 1050px; font-family: var(--font-display); font-size: clamp(58px, 10vw, 144px); line-height: 0.76; letter-spacing: -0.11em; font-weight: 950; text-transform: uppercase; }
     .ss-title span { display: block; }
     .ss-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); text-stroke: 1.5px var(--ink); }
     .ss-title .colour { background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue)); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ssColourMove 6s ease-in-out infinite alternate; }
@@ -60,38 +60,31 @@
       width: 100%;
       min-height: 620px;
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.65fr);
+      grid-template-columns: 1fr;
       align-items: center;
-      gap: clamp(40px, 7vw, 110px);
+      gap: clamp(52px, 7vw, 110px);
       padding: 78px max(20px, calc((100vw - 1180px) / 2)) 64px;
       background: radial-gradient(circle at 82% 12%, rgba(255,78,184,0.12), transparent 26%), radial-gradient(circle at 16% 76%, rgba(36,87,255,0.10), transparent 28%), var(--cream);
       border-bottom: 1px solid var(--line);
     }
-    .ss-motion-wrap { display: grid; place-items: center; min-height: 360px; perspective: 900px; }
-    .ss-motion-orb {
-      --rx: 0deg;
-      --ry: 0deg;
-      position: relative;
-      width: min(30vw, 360px);
-      aspect-ratio: 1;
-      border-radius: 42% 58% 63% 37% / 45% 35% 65% 55%;
-      background: conic-gradient(from 45deg, var(--blue), #7657ff, var(--pink), var(--orange), var(--lime), var(--blue));
-      box-shadow: 0 34px 80px rgba(31,94,255,0.24), inset 20px -20px 50px rgba(16,17,20,0.18), inset -18px 18px 42px rgba(255,255,255,0.30);
-      transform: rotateX(var(--rx)) rotateY(var(--ry));
-      animation: ssOrbMorph 9s ease-in-out infinite, ssOrbTurn 16s linear infinite;
-      transition: transform 0.18s ease-out;
-      isolation: isolate;
+    .ss-title { cursor: default; }
+    .ss-title-word { position: relative; width: 100%; height: 0.9em; max-width: 100%; overflow: hidden; letter-spacing: -0.09em; background: none; animation: none; }
+    .ss-word-current, .ss-word-next { position: absolute; inset: 0 auto auto 0; width: max-content; max-width: 100%; line-height: 0.88; background: linear-gradient(90deg, var(--blue), var(--pink), var(--blue)); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ssColourMove 6.6s ease-in-out infinite alternate; will-change: transform, opacity; }
+    .ss-word-current { transform: translateY(0); opacity: 1; }
+    .ss-word-next { transform: translateY(105%); opacity: 0.25; }
+    .ss-title.is-changing .ss-word-current { animation: ssWordOut 0.72s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .ss-title.is-changing .ss-word-next { animation: ssWordIn 0.72s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    @keyframes ssWordOut {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-105%); opacity: 0; }
     }
-    .ss-motion-orb::before,
-    .ss-motion-orb::after { content: ""; position: absolute; border-radius: inherit; pointer-events: none; }
-    .ss-motion-orb::before { inset: 12%; background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.85), transparent 22%), linear-gradient(145deg, rgba(255,255,255,0.22), transparent 55%); mix-blend-mode: screen; }
-    .ss-motion-orb::after { inset: -12%; z-index: -1; border: 1px solid rgba(31,94,255,0.22); animation: ssOrbRing 4s ease-in-out infinite; }
-    @keyframes ssOrbMorph {
-      0%, 100% { border-radius: 42% 58% 63% 37% / 45% 35% 65% 55%; }
-      50% { border-radius: 58% 42% 36% 64% / 62% 55% 45% 38%; }
+    @keyframes ssWordIn {
+      0% { transform: translateY(105%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
-    @keyframes ssOrbTurn { to { filter: hue-rotate(360deg); } }
-    @keyframes ssOrbRing { 50% { inset: -18%; transform: rotate(12deg); opacity: 0.45; } }
+    @media (prefers-reduced-motion: reduce) {
+      .ss-title.is-changing .ss-word-current, .ss-title.is-changing .ss-word-next { animation: none; }
+    }
     .ss-contact-card {
       width: min(590px, calc(100% - 40px));
       margin-left: max(20px, calc((100vw - 1180px) / 2));
@@ -130,7 +123,7 @@
 
     @media (max-width: 980px) {
       .ss-nav-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
-      .ss-contact-panel { grid-template-columns: minmax(0, 1fr) minmax(240px, 0.55fr); }
+      .ss-contact-panel { grid-template-columns: 1fr; gap: 42px; }
     }
 
     @media (max-width: 640px) {
@@ -138,14 +131,9 @@
       .ss-contact { padding: 0 0 54px; }
       .ss-contact .ss-wrap { width: 100%; }
       .ss-contact-card { width: min(100% - 26px, 590px); margin-left: 13px; }
-      .ss-contact-panel { min-height: 560px; grid-template-columns: 1fr; gap: 30px; padding-top: 54px; padding-bottom: 44px; }
-      .ss-title { font-size: clamp(48px, 15vw, 78px); }
-      .ss-motion-wrap { min-height: 220px; }
-      .ss-motion-orb { width: min(62vw, 250px); }
+      .ss-contact-panel { min-height: 500px; grid-template-columns: 1fr; gap: 30px; padding-top: 54px; padding-bottom: 44px; }
+      .ss-title { font-size: clamp(50px, 17vw, 88px); }
       .ss-form-row { grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .ss-motion-orb, .ss-motion-orb::after { animation: none; transition: none; }
     }
   </style>
 </head>
@@ -170,14 +158,14 @@
     <section class="ss-contact">
       <div class="ss-wrap ss-contact-grid">
         <div class="ss-contact-panel">
-          <h1 class="ss-title">
+          <h1 class="ss-title" tabindex="0" aria-label="Start a conversation. Hover to explore more phrases.">
             <span>Start</span>
             <span class="outline">a</span>
-            <span class="colour">Conversation.</span>
+            <span class="ss-title-word colour">
+              <span class="ss-word-current">Conversation.</span>
+              <span class="ss-word-next" aria-hidden="true"></span>
+            </span>
           </h1>
-          <div class="ss-motion-wrap" aria-hidden="true">
-            <div class="ss-motion-orb"></div>
-          </div>
         </div>
 
         <aside class="ss-contact-card">
@@ -222,24 +210,48 @@
   </footer>
   <script src="social-header.js?v=2"></script>
   <script>
-    const motionWrap = document.querySelector(".ss-motion-wrap");
-    const motionOrb = document.querySelector(".ss-motion-orb");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const title = document.querySelector(".ss-title");
+    const word = title?.querySelector(".ss-title-word");
+    const currentWord = title?.querySelector(".ss-word-current");
+    const nextWord = title?.querySelector(".ss-word-next");
+    const phrases = [
+      { text: "Conversation." },
+      { text: "Connection." },
+      { text: "Project." },
+      { text: "Collaboration." },
+      { text: "Dialogue." }
+    ];
+    let phraseIndex = 0;
+    let phraseTimer;
 
-    if (motionWrap && motionOrb && !reducedMotion) {
-      motionWrap.addEventListener("pointermove", (event) => {
-        const bounds = motionWrap.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-        motionOrb.style.setProperty("--rx", `${y * -14}deg`);
-        motionOrb.style.setProperty("--ry", `${x * 14}deg`);
-      });
-
-      motionWrap.addEventListener("pointerleave", () => {
-        motionOrb.style.setProperty("--rx", "0deg");
-        motionOrb.style.setProperty("--ry", "0deg");
-      });
+    function showNextPhrase() {
+      if (!title || !word || !currentWord || !nextWord || title.classList.contains("is-changing")) return;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      nextWord.textContent = phrases[phraseIndex].text;
+      title.classList.add("is-changing");
+      window.setTimeout(() => {
+        currentWord.textContent = phrases[phraseIndex].text;
+        title.classList.remove("is-changing");
+        nextWord.textContent = "";
+      }, 720);
     }
+
+    function startPhrases() {
+      if (phraseTimer) return;
+      showNextPhrase();
+      phraseTimer = window.setInterval(showNextPhrase, 1450);
+    }
+
+    function stopPhrases() {
+      window.clearInterval(phraseTimer);
+      phraseTimer = undefined;
+    }
+
+    title?.addEventListener("pointerenter", startPhrases);
+    title?.addEventListener("pointerleave", stopPhrases);
+    title?.addEventListener("focus", startPhrases);
+    title?.addEventListener("blur", stopPhrases);
+    title?.addEventListener("click", showNextPhrase);
   </script>
 </body>
 </html>
