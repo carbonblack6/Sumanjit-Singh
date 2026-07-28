@@ -50,7 +50,6 @@
       from { background-position: 0% 50%; }
       to { background-position: 100% 50%; }
     }
-
     .ss-gallery { padding: 78px 0 100px; }
     .ss-gallery-head { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr); gap: 34px; align-items: end; margin-bottom: 34px; }
     .ss-gallery-head h2 { margin: 0; font-family: var(--font-display); font-size: clamp(34px, 5vw, 72px); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
@@ -70,6 +69,54 @@
     .ss-artifact:nth-child(6) .ss-artifact-visual { background: linear-gradient(135deg, #101114, var(--blue)); }
     .ss-artifact-visual::after { content: ""; position: absolute; right: -38px; top: -38px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.18); }
     .ss-artifact-visual strong { position: relative; z-index: 1; font-family: var(--font-display); font-size: clamp(34px, 5vw, 68px); line-height: 0.84; letter-spacing: -0.06em; text-transform: uppercase; }
+    .ss-visual-ui { align-content: center; }
+    .ss-visual-ui::after { display: none; }
+    .ss-interactive-panel { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 0.72fr; gap: 12px; width: min(100%, 390px); }
+    .ss-interactive-card, .ss-feedback-card { border: 1px solid rgba(255,255,255,0.26); border-radius: 8px; background: rgba(255,255,255,0.12); padding: 12px; box-shadow: 0 18px 48px rgba(0,0,0,0.18); }
+    .ss-drop-zone { min-height: 74px; display: grid; place-items: center; border: 2px dashed rgba(255,255,255,0.54); border-radius: 8px; color: rgba(255,255,255,0.74); font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+    .ss-token-row { display: flex; gap: 8px; margin-top: 10px; }
+    .ss-token { flex: 1; min-height: 34px; border-radius: 8px; background: rgba(255,255,255,0.72); }
+    .ss-token.is-selected { background: var(--lime); }
+    .ss-feedback-card { display: grid; gap: 10px; align-content: center; }
+    .ss-check-ring { width: 54px; height: 54px; border-radius: 50%; border: 8px solid rgba(255,255,255,0.32); border-top-color: var(--lime); justify-self: center; }
+    .ss-feedback-line { min-height: 10px; border-radius: 999px; background: rgba(255,255,255,0.66); }
+    .ss-feedback-line.short { width: 62%; justify-self: center; }
+    .ss-authoring-board { position: relative; z-index: 1; display: grid; grid-template-columns: 0.55fr 1fr; gap: 12px; width: min(100%, 390px); }
+    .ss-authoring-tools, .ss-authoring-slide { border: 1px solid rgba(255,255,255,0.24); border-radius: 8px; background: rgba(255,255,255,0.12); padding: 12px; }
+    .ss-tool-pill { min-height: 28px; margin-bottom: 8px; border-radius: 999px; background: rgba(255,255,255,0.34); }
+    .ss-tool-pill.is-active { background: #ffffff; }
+    .ss-authoring-slide { display: grid; gap: 10px; }
+    .ss-slide-media { min-height: 70px; border-radius: 8px; background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(216,255,54,0.32)); }
+    .ss-slide-line { min-height: 11px; border-radius: 999px; background: rgba(255,255,255,0.62); }
+    .ss-slide-line.short { width: 64%; }
+    .ss-slide-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    .ss-slide-action { min-height: 28px; border-radius: 8px; background: rgba(16,17,20,0.24); }
+    .ss-lms-shell { position: relative; z-index: 1; display: grid; grid-template-columns: 84px 1fr; width: min(100%, 370px); min-height: 160px; border-radius: 8px; overflow: hidden; background: #ffffff; color: var(--ink); }
+    .ss-lms-side { display: grid; gap: 8px; align-content: start; padding: 12px; background: var(--ink); }
+    .ss-lms-side span, .ss-lms-line { min-height: 10px; border-radius: 999px; background: rgba(255,255,255,0.38); }
+    .ss-lms-main { display: grid; gap: 10px; padding: 14px; }
+    .ss-lms-main .ss-lms-line { background: rgba(16,17,20,0.24); }
+    .ss-lms-block { min-height: 34px; border: 1px solid rgba(16,17,20,0.13); border-radius: 8px; background: var(--surface); }
+    .ss-lms-block.is-complete { border-color: var(--blue); background: rgba(31,94,255,0.12); }
+    .ss-video-shot { position: relative; z-index: 1; width: min(100%, 370px); min-height: 168px; border: 1px solid rgba(255,255,255,0.26); border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, rgba(16,17,20,0.2), rgba(16,17,20,0.74)), linear-gradient(28deg, #96d7ff 0 28%, #f6f1e8 28% 43%, #17358f 43% 70%, #e94d96 70% 100%); }
+    .ss-video-shot::before { content: ""; position: absolute; left: 22px; right: 22px; bottom: 18px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.32); }
+    .ss-play { position: absolute; inset: 0; margin: auto; width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.86); }
+    .ss-play::after { content: ""; position: absolute; left: 23px; top: 18px; border-left: 18px solid var(--blue); border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+    .ss-ux-map { position: relative; z-index: 1; width: min(100%, 370px); min-height: 172px; }
+    .ss-ux-node { position: absolute; width: 74px; min-height: 46px; border: 1px solid rgba(255,255,255,0.28); border-radius: 8px; background: rgba(255,255,255,0.18); }
+    .ss-ux-node:nth-child(1) { left: 0; top: 58px; }
+    .ss-ux-node:nth-child(2) { left: 132px; top: 18px; background: rgba(255,255,255,0.32); }
+    .ss-ux-node:nth-child(3) { right: 0; top: 58px; }
+    .ss-ux-node:nth-child(4) { left: 132px; bottom: 8px; background: rgba(216,255,54,0.24); }
+    .ss-ux-path { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .ss-artifact .ss-icon-visual { align-content: center; background: var(--ink); }
+    .ss-icon-visual::after { display: none; }
+    .ss-icon-set { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: min(100%, 360px); }
+    .ss-icon-tile { min-height: 72px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.24); border-radius: 8px; background: rgba(255,255,255,0.08); }
+    .ss-icon-tile svg { width: 36px; height: 36px; color: #ffffff; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .ss-icon-tile:nth-child(odd) { background: rgba(31,94,255,0.42); }
+    .ss-icon-tile:nth-child(3n) { color: var(--lime); }
+    .ss-icon-tile:nth-child(4) { color: var(--pink); }
     .ss-artifact-meta { margin: 0; color: var(--blue); font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
     .ss-artifact h3 { margin: 0; font-family: var(--font-serif); font-size: clamp(30px, 3.5vw, 52px); line-height: 0.98; font-weight: 400; }
     .ss-artifact p { margin: 16px 0 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
@@ -81,6 +128,12 @@
     @media (max-width: 980px) {
       .ss-nav-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
       .ss-gallery-head, .ss-artifact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ss-title .colour {
+        animation: none;
+      }
     }
 
     @media (max-width: 640px) {
@@ -123,12 +176,28 @@
       <div class="ss-wrap">
         <div class="ss-gallery-head">
           <h2>Learning Design Artifacts</h2>
-          <p>A two-column gallery for samples across interactive learning, Moodle, H5P, Articulate, video, UX flows and visual learning systems.</p>
+          <p>A snapshot of my skills across interactive learning, LMS design, video production, UX mapping and visual systems for clearer digital learning experiences.</p>
         </div>
 
         <div class="ss-artifact-grid">
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>H5P</strong></div>
+            <div class="ss-artifact-visual ss-visual-ui" aria-label="Interactive learning activity visual">
+              <div class="ss-interactive-panel">
+                <div class="ss-interactive-card">
+                  <div class="ss-drop-zone">Drop answer</div>
+                  <div class="ss-token-row">
+                    <span class="ss-token"></span>
+                    <span class="ss-token is-selected"></span>
+                    <span class="ss-token"></span>
+                  </div>
+                </div>
+                <div class="ss-feedback-card">
+                  <div class="ss-check-ring"></div>
+                  <div class="ss-feedback-line"></div>
+                  <div class="ss-feedback-line short"></div>
+                </div>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">Interactive checks</p>
               <h3>Knowledge checks and branching interactions</h3>
@@ -137,7 +206,26 @@
           </article>
 
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>Storyline</strong></div>
+            <div class="ss-artifact-visual ss-visual-ui" aria-label="Authoring tool lesson builder visual">
+              <div class="ss-authoring-board">
+                <div class="ss-authoring-tools">
+                  <div class="ss-tool-pill is-active"></div>
+                  <div class="ss-tool-pill"></div>
+                  <div class="ss-tool-pill"></div>
+                  <div class="ss-tool-pill"></div>
+                </div>
+                <div class="ss-authoring-slide">
+                  <div class="ss-slide-media"></div>
+                  <div class="ss-slide-line"></div>
+                  <div class="ss-slide-line short"></div>
+                  <div class="ss-slide-actions">
+                    <span class="ss-slide-action"></span>
+                    <span class="ss-slide-action"></span>
+                    <span class="ss-slide-action"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">Articulate / Rise</p>
               <h3>Microlearning modules and guided lessons</h3>
@@ -146,7 +234,17 @@
           </article>
 
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>Moodle</strong></div>
+            <div class="ss-artifact-visual ss-visual-ui" aria-label="LMS course shell visual">
+              <div class="ss-lms-shell">
+                <div class="ss-lms-side"><span></span><span></span><span></span><span></span></div>
+                <div class="ss-lms-main">
+                  <div class="ss-lms-line"></div>
+                  <div class="ss-lms-block is-complete"></div>
+                  <div class="ss-lms-block"></div>
+                  <div class="ss-lms-block"></div>
+                </div>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">LMS structure</p>
               <h3>Course shells, activity flows and completion design</h3>
@@ -155,7 +253,11 @@
           </article>
 
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>Video</strong></div>
+            <div class="ss-artifact-visual ss-visual-ui" aria-label="Video learning resource visual">
+              <div class="ss-video-shot">
+                <span class="ss-play"></span>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">Lightboard / editing</p>
               <h3>Visual explanation videos and supporting media</h3>
@@ -164,7 +266,19 @@
           </article>
 
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>UX</strong></div>
+            <div class="ss-artifact-visual ss-visual-ui" aria-label="UX learner pathway visual">
+              <div class="ss-ux-map">
+                <svg class="ss-ux-path" viewBox="0 0 370 172" aria-hidden="true">
+                  <path d="M74 80 C118 80 108 42 132 42" stroke="rgba(255,255,255,0.72)" stroke-width="3" fill="none"/>
+                  <path d="M206 42 C238 42 224 80 296 80" stroke="rgba(255,255,255,0.72)" stroke-width="3" fill="none"/>
+                  <path d="M185 64 V118" stroke="rgba(216,255,54,0.82)" stroke-width="3" fill="none"/>
+                </svg>
+                <div class="ss-ux-node"></div>
+                <div class="ss-ux-node"></div>
+                <div class="ss-ux-node"></div>
+                <div class="ss-ux-node"></div>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">Learning journeys</p>
               <h3>Maps, wireframes and learner pathways</h3>
@@ -173,11 +287,32 @@
           </article>
 
           <article class="ss-artifact">
-            <div class="ss-artifact-visual"><strong>Visuals</strong></div>
+            <div class="ss-artifact-visual ss-icon-visual" aria-label="Sample icon set for learning design visuals">
+              <div class="ss-icon-set">
+                <div class="ss-icon-tile" title="Learning module">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 12h16l8 8v16H12z"/><path d="M28 12v8h8"/><path d="M18 27h12"/><path d="M18 33h8"/></svg>
+                </div>
+                <div class="ss-icon-tile" title="Video resource">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="14" width="28" height="20" rx="3"/><path d="M22 20l9 4-9 4z"/></svg>
+                </div>
+                <div class="ss-icon-tile" title="LMS pathway">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="10" width="12" height="12" rx="2"/><rect x="27" y="10" width="12" height="12" rx="2"/><rect x="18" y="28" width="12" height="12" rx="2"/><path d="M21 16h6"/><path d="M33 22l-6 6"/><path d="M15 22l6 6"/></svg>
+                </div>
+                <div class="ss-icon-tile" title="UX flow">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="13" cy="24" r="5"/><circle cx="35" cy="14" r="5"/><circle cx="35" cy="34" r="5"/><path d="M18 23l12-7"/><path d="M18 25l12 7"/></svg>
+                </div>
+                <div class="ss-icon-tile" title="Accessibility">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="3"/><path d="M12 18h24"/><path d="M24 18v9"/><path d="M18 38l6-11 6 11"/><path d="M17 24h14"/></svg>
+                </div>
+                <div class="ss-icon-tile" title="Support and feedback">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 14h24v17H22l-7 6v-6h-3z"/><path d="M18 21h12"/><path d="M18 26h8"/></svg>
+                </div>
+              </div>
+            </div>
             <div>
               <p class="ss-artifact-meta">Design systems</p>
               <h3>Infographics, icons and learning visuals</h3>
-              <p>Diagrams, module graphics, icon sets, activity visuals and typographic treatments for learning spaces that need clarity and energy.</p>
+              <p>A visitor-facing icon set for modules, video, LMS pathways, UX flows, accessibility and support, designed to sit beside diagrams, activity visuals and typographic treatments.</p>
             </div>
           </article>
         </div>
