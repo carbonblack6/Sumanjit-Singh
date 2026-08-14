@@ -404,6 +404,81 @@
       object-fit: cover;
     }
 
+    .ss-project-gallery {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding-top: 6px;
+    }
+
+    .ss-project-gallery.is-three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ss-project-shot {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+
+    .ss-project-shot a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .ss-project-shot-frame {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #eef1f6;
+    }
+
+    .ss-project-shot.is-page .ss-project-shot-frame {
+      aspect-ratio: 4 / 5;
+    }
+
+    .ss-project-shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.24s ease;
+    }
+
+    .ss-project-shot:hover img { transform: scale(1.012); }
+
+    .ss-project-shot figcaption {
+      padding: 13px 14px 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .ss-project-shot figcaption strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .ss-case-link {
+      display: inline-block;
+      padding-bottom: 5px;
+      color: var(--ink);
+      border-bottom: 3px solid var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .ss-case-link:hover { color: var(--blue); }
+
     .ss-footer {
       background: var(--bg);
       border-top: 1px solid var(--line);
@@ -474,6 +549,9 @@
         max-width: none;
         aspect-ratio: 16 / 8;
       }
+
+      .ss-project-gallery,
+      .ss-project-gallery.is-three { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -509,15 +587,18 @@
     <section class="ss-intro">
       <div class="ss-wrap ss-intro-grid">
         <p class="ss-intro-copy">
-          A mix of Moodle builds, school UX, multimedia production, technical workflows and portfolio experiments.
+          A mix of Moodle builds, school UX, multimedia production, technical workflows and small-business website projects.
         </p>
         <div class="ss-index" aria-label="Project index">
           <a href="#passport-to-maths"><span>01</span> Passport to Maths (Monash College)</a>
           <a href="#block-model"><span>02</span> Block Model - Digital Learning Redesign and LMS Support</a>
           <a href="#subject-selection"><span>03</span> Subject Selection Site Redesign</a>
           <a href="#social-media"><span>04</span> Year 7 Social Media Awareness Module</a>
+          <a href="#cardiac-decision-lab"><span>05</span> Cardiac Decision Lab</a>
           <a href="#stubbify"><span>05</span> Stubbify Digital Media & 3D Workflow</a>
-          <a href="#website-experiments"><span>06</span> Website / UX / Digital Design Experiments</a>
+          <a href="#fence-depot"><span>06</span> Fence Depot Melbourne</a>
+          <a href="#top-quality-timber"><span>07</span> Top Quality Timber</a>
+          <a href="#cafe445"><span>08</span> Cafe445</a>
         </div>
       </div>
     </section>
@@ -622,6 +703,26 @@
                   <li>Before-and-after page layout examples</li>
                 </ul>
               </div>
+              <div class="ss-project-gallery is-three ss-gallery-subject" aria-label="Subject Selection project screenshots">
+                <figure class="ss-project-shot is-page">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%208.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%208.png" alt="Year 8 Subject Selection interface with instructions, support cards and selection workflow" loading="lazy"></div>
+                    <figcaption><strong>Year 8 pathway</strong>Key dates, support contacts and selection instructions are surfaced at the start of the workflow.</figcaption>
+                  </a>
+                </figure>
+                <figure class="ss-project-shot is-page">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%2010.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%2010.png" alt="Year 10 Subject Selection interface showing a guided course selection page" loading="lazy"></div>
+                    <figcaption><strong>Year 10 pathway</strong>A consistent card system guides students from information through to course preferences.</figcaption>
+                  </a>
+                </figure>
+                <figure class="ss-project-shot is-page">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%2011.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Subject%20Selection/Sub%20Selection%20Year%2011.png" alt="Year 11 Subject Selection interface with information hierarchy and preference controls" loading="lazy"></div>
+                    <figcaption><strong>Year 11 pathway</strong>The same visual language scales to a longer, more detailed senior selection process.</figcaption>
+                  </a>
+                </figure>
+              </div>
               <div class="ss-detail wide">
                 <h3>What I'd Improve Next</h3>
                 <p>I would create a stronger reusable unit template system, improve staff-facing quick-start guides, and use more learner analytics or support-ticket patterns to identify recurring design and technology issues earlier.</p>
@@ -679,6 +780,32 @@
                   <li>Support/contact section screenshot</li>
                   <li>Subject selection workflow diagram</li>
                 </ul>
+              </div>
+              <div class="ss-project-gallery ss-gallery-social" aria-label="Social Media Awareness Moodle module screenshots">
+                <figure class="ss-project-shot">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20093041.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20093041.png" alt="Social Media Awareness Year 7 Moodle course landing page" loading="lazy"></div>
+                    <figcaption><strong>Guided module landing page</strong>Five modules, locked progression and a completion certificate create a clear learner pathway.</figcaption>
+                  </a>
+                </figure>
+                <figure class="ss-project-shot">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103407.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103407.png" alt="Interactive image hotspot activity inside the Moodle module" loading="lazy"></div>
+                    <figcaption><strong>Interactive image hotspots</strong>Embedded H5P interactions turn familiar devices into active exploration tasks.</figcaption>
+                  </a>
+                </figure>
+                <figure class="ss-project-shot">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103510.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103510.png" alt="Interactive learning activity in the Social Media Awareness Moodle module" loading="lazy"></div>
+                    <figcaption><strong>Memorable visual explanations</strong>Bold, age-appropriate media turns an abstract message into a practical posting check.</figcaption>
+                  </a>
+                </figure>
+                <figure class="ss-project-shot">
+                  <a href="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103833.png" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/education-design/Education%20Design%20Material%20Examples/Social%20Media%20Awareness%20Y7%20Module%20%20(Moodle%20LMS)/Screenshot%202026-08-11%20103833.png" alt="Completion stage of the Social Media Awareness Moodle module" loading="lazy"></div>
+                    <figcaption><strong>Scenario-based exploration</strong>Interactive profiles prompt students to examine audience, privacy and online identity.</figcaption>
+                  </a>
+                </figure>
               </div>
               <div class="ss-detail wide">
                 <h3>What I'd Improve Next</h3>
@@ -746,11 +873,44 @@
           </div>
         </article>
 
+        <article class="ss-project" id="cardiac-decision-lab">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">05 / Articulate Rise</span>
+              <h2 class="ss-project-title">5. Cardiac Decision Lab — Adult Congenital Heart Disease</h2>
+              <p class="ss-project-summary">A scenario-led clinical learning experience that asks learners to inspect patient evidence, recognise red flags and make safe escalation decisions.</p>
+            </header>
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Learning Design Process</h3>
+                <p>The experience begins with a concise orientation, then introduces a realistic patient handover and room assessment. Information is deliberately revealed through visual evidence and decision points so the learner must connect symptoms, observations and cardiac history before choosing an action.</p>
+                <p>The design uses progressive disclosure, scenario context and consequence-based feedback to practise clinical reasoning rather than simple recall. The exported PDF captures the content and visual sequence; custom interactions are represented as static states because their behaviour only runs in the published module.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Design Intent</h3>
+                <p>Reduce cognitive overload, make urgent cues visible and create a psychologically safe space for learners to test a judgement before applying it in practice.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Build Approach</h3>
+                <p>Structured in Articulate Rise with a strong visual hierarchy, patient-room hotspots, staged evidence and multiple-choice decision checks.</p>
+              </div>
+              <div class="ss-project-gallery is-three" aria-label="Cardiac Decision Lab screenshots">
+                <figure class="ss-project-shot"><a href="cardiac-decision-lab.html"><div class="ss-project-shot-frame"><img src="assets/education-design/cardiac-decision-lab/cardiac-page-01.png" alt="Cardiac Decision Lab title and scenario introduction" loading="lazy"></div><figcaption><strong>Scenario entry</strong>The clinical task and expected decision-making behaviour are established immediately.</figcaption></a></figure>
+                <figure class="ss-project-shot"><a href="cardiac-decision-lab.html"><div class="ss-project-shot-frame"><img src="assets/education-design/cardiac-decision-lab/cardiac-page-09.png" alt="Patient room with interactive evidence hotspots" loading="lazy"></div><figcaption><strong>Evidence exploration</strong>Room hotspots encourage deliberate observation before a decision is made.</figcaption></a></figure>
+                <figure class="ss-project-shot"><a href="cardiac-decision-lab.html"><div class="ss-project-shot-frame"><img src="assets/education-design/cardiac-decision-lab/cardiac-page-17.png" alt="Clinical decision point with four response options" loading="lazy"></div><figcaption><strong>Decision point</strong>Plausible alternatives test prioritisation and safe escalation, not factual recall alone.</figcaption></a></figure>
+              </div>
+              <div class="ss-detail wide">
+                <a class="ss-case-link" href="cardiac-decision-lab.html">View full project and screenshots</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <article class="ss-project" id="stubbify">
           <div class="ss-project-body">
             <header class="ss-project-head">
               <span class="ss-number">05 / Multimedia + 3D</span>
-              <h2 class="ss-project-title">5. Stubbify Digital Media & 3D Workflow</h2>
+              <h2 class="ss-project-title">6. Stubbify Digital Media & 3D Workflow</h2>
             </header>
 
             <div class="ss-detail-grid">
@@ -792,6 +952,14 @@
                   <li><a href="https://dingotrails.com.au/">Dingo Trails</a> - logo work, product photography, animations, retouching, transitions, infographics and broader multimedia production.</li>
                 </ul>
               </div>
+              <div class="ss-project-gallery" aria-label="Dingo Trails website screenshot">
+                <figure class="ss-project-shot">
+                  <a href="https://dingotrails.com.au/" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/website-projects/dingo-trails-home.png" alt="Dingo Trails homepage with product manufacturing hero image" loading="lazy"></div>
+                    <figcaption><strong>Dingo Trails homepage</strong>Product photography, brand styling and a direct retail pathway bring the manufacturing story into the customer experience.</figcaption>
+                  </a>
+                </figure>
+              </div>
               <div class="ss-detail wide">
                 <h3>What I'd Improve Next</h3>
                 <p>I would turn the 3D scanning and reverse engineering process into a cleaner documented workflow with clearer comparison tables, tool testing results and visual process diagrams. I would also create a short product/media reel showing the best visuals together.</p>
@@ -800,40 +968,144 @@
           </div>
         </article>
 
-        <article class="ss-project" id="website-experiments">
+        <article class="ss-project" id="fence-depot">
           <div class="ss-project-body">
             <header class="ss-project-head">
-              <span class="ss-number">06 / Portfolio system</span>
-              <h2 class="ss-project-title">6. Website / UX / Digital Design Experiments</h2>
+              <span class="ss-number">06 / Trade website</span>
+              <h2 class="ss-project-title">7. Fence Depot Melbourne</h2>
             </header>
 
             <div class="ss-detail-grid">
               <div class="ss-detail wide">
                 <h3>Project Overview</h3>
-                <p>The project includes portfolio layouts, WordPress sections, custom HTML/CSS, coded typography, interactive visual statements, project cards, navigation structures and Webflow/Framer-inspired layout ideas.</p>
+                <p><strong>Logo design, website design, face-to-face consulting, advisory support, MYOB setup and business systems support.</strong></p>
+                <p>Fence Depot Melbourne is positioned around Colorbond fencing solutions, with the public site highlighting fencing supplies for homes and businesses, product profiles such as Sawscreen, Trimscreen and Lapscreen, and service points around durability, premium quality, product choice, on-time delivery, accessories and expert advice.</p>
               </div>
-              <div class="ss-detail">
+              <div class="ss-detail wide">
                 <h3>Role & Contribution</h3>
-                <p>I explored how to structure a homepage, present multiple skill areas, create visual project sections, and use typography, colour and layout to make the portfolio feel design-led.</p>
+                <p>My contribution included supporting the business through both design and practical technology setup. This involved working directly with the owners, understanding what they needed from their website and systems, advising on layout and customer flow, and helping connect the digital presence with day-to-day business operations.</p>
+                <p>The project included logo and website support, content structure, service presentation, enquiry/contact pathways, MYOB setup, business system support, technical troubleshooting and face-to-face guidance for existing systems.</p>
               </div>
               <div class="ss-detail">
-                <h3>Constraints</h3>
-                <p>The challenge was balancing learning design, LMS, UX, multimedia and technical design without becoming too text-heavy or looking like a resume page.</p>
+                <h3>Design Challenge / Constraints</h3>
+                <p>The site needed to communicate practical trade information quickly while staying manageable for business owners who needed clear systems, not extra complexity. The work also had to connect the public-facing website with backend processes such as MYOB and everyday enquiry handling.</p>
               </div>
               <div class="ss-detail">
                 <h3>Goals & Metrics</h3>
-                <p>Create a portfolio system that is professional, visual, responsive, expandable and able to support deeper case study pages later.</p>
-              </div>
-              <div class="ss-detail">
-                <h3>Outcome / Value</h3>
-                <p>The project clarified the portfolio's design direction and produced reusable HTML/CSS sections for WordPress, GitHub Pages or Netlify.</p>
+                <p>Key goals were to make product and service information easy to scan, improve trust through clear presentation, support customer enquiries, and give the owners a more practical digital foundation for business operations.</p>
               </div>
               <div class="ss-detail wide">
-                <h3>Artifacts</h3>
+                <h3>Outcome / Value</h3>
+                <p>The project showed how website design, brand direction and business systems support can work together. It demonstrated practical consulting, front-end presentation, troubleshooting and owner support beyond a simple visual website build.</p>
+              </div>
+              <div class="ss-project-gallery" aria-label="Fence Depot Melbourne website screenshot">
+                <figure class="ss-project-shot">
+                  <a href="https://fencedepotmelbourne.com.au/" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/website-projects/fence-depot-home.png" alt="Fence Depot Melbourne homepage with Colorbond fencing hero" loading="lazy"></div>
+                    <figcaption><strong>Fence Depot homepage</strong>The opening screen combines brand identity, fencing context and a prominent quote pathway for trade-focused enquiries.</figcaption>
+                  </a>
+                </figure>
+              </div>
+              <div class="ss-detail">
+                <h3>Live Site</h3>
                 <ul class="ss-artifacts">
-                  <li><a href="https://fencedepotmelbourne.com.au/">Fence Depot Melbourne</a> - logo design, website design, MYOB setup and supporting business systems setup.</li>
-                  <li><a href="https://topqualitytimber.com.au/">Top Quality Timber</a> - logo design, website design, MYOB setup and supporting business systems setup.</li>
-                  <li><a href="https://www.cafe445.com.au/">Cafe445</a> - website design, Square system setup, menu integration and backend configuration.</li>
+                  <li><a href="https://fencedepotmelbourne.com.au/">Fence Depot Melbourne</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="top-quality-timber">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">07 / Trade website</span>
+              <h2 class="ss-project-title">8. Top Quality Timber</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p><strong>Logo design, website design, MYOB setup and supporting business systems setup.</strong></p>
+                <p>Top Quality Timber is a trade-focused business site presenting fencing, timber fencing, decking, structural timber, hardware, landscaping and retaining wall categories. The site positions the business around high-quality fencing solutions for residential and commercial properties, with a focus on material choice, craftsmanship, customer service and helping customers select suitable fencing or timber products.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Role & Contribution</h3>
+                <p>My role involved helping shape the visual and digital presentation of the business so customers could understand the range quickly. This included brand support, page structure, category presentation, website setup, MYOB support and practical systems guidance.</p>
+                <p>The project strengthened my ability to design for service-based and product-based businesses where clarity, trust and direct contact are more important than overly complex visuals.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Design Challenge / Constraints</h3>
+                <p>The site needed to organise a broad product and service range without making customers work too hard to understand what the business offered. The challenge was balancing trade-focused information, visual clarity, customer trust and a direct contact path.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Metrics</h3>
+                <p>The goal was to make categories such as timber fencing, decking, structural timber, hardware, landscaping and retaining walls easier to navigate while supporting business operations through MYOB and practical systems setup.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The project added a clearer digital presence for a product-based trade business and helped show how UX thinking applies to category structure, service explanation and owner-friendly backend support.</p>
+              </div>
+              <div class="ss-project-gallery" aria-label="Top Quality Timber website screenshot">
+                <figure class="ss-project-shot">
+                  <a href="https://topqualitytimber.com.au/" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/website-projects/top-quality-timber-home.png" alt="Top Quality Timber homepage with product navigation and timber hero" loading="lazy"></div>
+                    <figcaption><strong>Top Quality Timber homepage</strong>A category-led navigation and material-focused hero help customers understand the product range immediately.</figcaption>
+                  </a>
+                </figure>
+              </div>
+              <div class="ss-detail">
+                <h3>Live Site</h3>
+                <ul class="ss-artifacts">
+                  <li><a href="https://topqualitytimber.com.au/">Top Quality Timber</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ss-project" id="cafe445">
+          <div class="ss-project-body">
+            <header class="ss-project-head">
+              <span class="ss-number">08 / Hospitality website</span>
+              <h2 class="ss-project-title">9. Cafe445</h2>
+            </header>
+
+            <div class="ss-detail-grid">
+              <div class="ss-detail wide">
+                <h3>Project Overview</h3>
+                <p><strong>Website design, Square system setup, menu integration and backend configuration.</strong></p>
+                <p>Cafe445 is a hospitality website for a cafe in Officer, with the public site presenting the venue as a local food and coffee destination. The site includes online ordering and menu-related pages, with examples such as hot drinks, cold drinks, lunch items, bowls and sandwiches appearing through the order/menu experience.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Role & Contribution</h3>
+                <p>My contribution focused on the digital setup side of the cafe experience: website design support, Square system setup, menu integration and backend configuration. This required thinking about the customer journey from browsing the menu to placing an order, while also making the backend manageable for the business.</p>
+                <p>The project helped me apply UX thinking to a practical hospitality context, where speed, clarity, menu structure and backend reliability matter. It also showed how design work often extends beyond the visible website into systems, setup, configuration and owner support.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Design Challenge / Constraints</h3>
+                <p>The cafe experience needed to be fast, clear and practical for customers on mobile while also being easy for the business to maintain behind the scenes. Menu setup, Square configuration and ordering flow all had to work together without creating friction.</p>
+              </div>
+              <div class="ss-detail">
+                <h3>Goals & Metrics</h3>
+                <p>Key goals included making menu information easier to browse, supporting online ordering, improving the mobile customer journey and configuring backend tools so the business could manage items, categories and ordering more reliably.</p>
+              </div>
+              <div class="ss-detail wide">
+                <h3>Outcome / Value</h3>
+                <p>The project demonstrated website design and systems thinking in a hospitality setting, connecting the visible customer experience with backend configuration, menu structure and operational support.</p>
+              </div>
+              <div class="ss-project-gallery" aria-label="Cafe445 website screenshot">
+                <figure class="ss-project-shot">
+                  <a href="https://www.cafe445.com.au/" target="_blank" rel="noopener">
+                    <div class="ss-project-shot-frame"><img src="assets/website-projects/cafe445-home.png" alt="Cafe445 homepage with venue photography and online ordering pathway" loading="lazy"></div>
+                    <figcaption><strong>Cafe445 homepage</strong>Venue photography, menu cues and visible ordering actions create a fast route from discovery to purchase.</figcaption>
+                  </a>
+                </figure>
+              </div>
+              <div class="ss-detail">
+                <h3>Live Site</h3>
+                <ul class="ss-artifacts">
+                  <li><a href="https://www.cafe445.com.au/">Cafe445</a></li>
                 </ul>
               </div>
             </div>
@@ -855,6 +1127,15 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Keep each imported gallery with the case study it documents.
+    const subjectGallery = document.querySelector('.ss-gallery-subject');
+    const subjectGrid = document.querySelector('#subject-selection .ss-detail-grid');
+    const socialGallery = document.querySelector('.ss-gallery-social');
+    const socialGrid = document.querySelector('#social-media .ss-detail-grid');
+    if (subjectGallery && subjectGrid) subjectGrid.insertBefore(subjectGallery, subjectGrid.lastElementChild);
+    if (socialGallery && socialGrid) socialGrid.insertBefore(socialGallery, socialGrid.lastElementChild);
+  </script>
   <script src="social-header.js?v=3"></script>
 </body>
 </html>
