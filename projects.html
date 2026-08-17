@@ -302,6 +302,21 @@
       line-height: 1.55;
     }
 
+    .ss-project-snapshot {
+      order: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      margin: 6px 0 0;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .ss-project-snapshot div { padding: 0 16px; border-left: 1px solid var(--line); }
+    .ss-project-snapshot div:first-child { padding-left: 0; border-left: 0; }
+    .ss-project-snapshot dt { margin: 0 0 7px; color: var(--blue); font-size: 11px; line-height: 1; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+    .ss-project-snapshot dd { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+
     .ss-detail-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -552,6 +567,9 @@
 
       .ss-project-gallery,
       .ss-project-gallery.is-three { grid-template-columns: 1fr; }
+
+      .ss-project-snapshot { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 0; }
+      .ss-project-snapshot div:nth-child(3) { padding-left: 0; border-left: 0; }
     }
   </style>
 </head>
@@ -609,6 +627,12 @@
           <div class="ss-project-body">
             <header class="ss-project-head">
               <span class="ss-number">01 / Monash College</span>
+              <dl class="ss-project-snapshot" aria-label="Passport to Maths project snapshot">
+                <div><dt>Role</dt><dd>Learning Experience Designer / Multimedia</dd></div>
+                <div><dt>Context</dt><dd>Higher Education / Pathway Mathematics</dd></div>
+                <div><dt>Delivery</dt><dd>Online</dd></div>
+                <div><dt>Tools</dt><dd>Moodle, H5P, STACK, LaTeX, Adobe, Lightboard</dd></div>
+              </dl>
               <h2 class="ss-project-title">1. Passport to Maths (Monash College)</h2>
             </header>
 
@@ -663,6 +687,12 @@
           <div class="ss-project-body">
             <header class="ss-project-head">
               <span class="ss-number">02 / Victoria University</span>
+              <dl class="ss-project-snapshot" aria-label="VU Brightspace project snapshot">
+                <div><dt>Role</dt><dd>Learning Design Support Officer</dd></div>
+                <div><dt>Context</dt><dd>Higher Education / Curriculum Transformation</dd></div>
+                <div><dt>Delivery</dt><dd>Online and Blended</dd></div>
+                <div><dt>Tools</dt><dd>Brightspace, Turnitin, Panopto, H5P</dd></div>
+              </dl>
               <h2 class="ss-project-title">2. Block Model – Digital Learning Redesign and LMS Support (Victoria University)</h2>
             </header>
 
@@ -735,6 +765,12 @@
           <div class="ss-project-body">
             <header class="ss-project-head">
               <span class="ss-number">03 / Padua College</span>
+              <dl class="ss-project-snapshot" aria-label="Subject Selection UX project snapshot">
+                <div><dt>Role</dt><dd>eLearning and Technology Officer</dd></div>
+                <div><dt>Context</dt><dd>School Systems / Student Experience</dd></div>
+                <div><dt>Delivery</dt><dd>Digital Workflow</dd></div>
+                <div><dt>Tools</dt><dd>Select My Subjects, SchoolData</dd></div>
+              </dl>
               <h2 class="ss-project-title">3. Subject Selection Site Redesign — Padua College</h2>
             </header>
 
@@ -819,6 +855,12 @@
           <div class="ss-project-body">
             <header class="ss-project-head">
               <span class="ss-number">04 / Padua College</span>
+              <dl class="ss-project-snapshot" aria-label="Social Media Awareness project snapshot">
+                <div><dt>Role</dt><dd>eLearning and Technology Officer</dd></div>
+                <div><dt>Context</dt><dd>Secondary Education</dd></div>
+                <div><dt>Delivery</dt><dd>Online</dd></div>
+                <div><dt>Tools</dt><dd>Moodle, Interactive Activities, Completion Tracking</dd></div>
+              </dl>
               <h2 class="ss-project-title">4. Year 7 Social Media Awareness Module — Padua College</h2>
             </header>
 
