@@ -56,6 +56,10 @@
     .ss-gallery-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
     .ss-artifact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .ss-artifact { min-height: 430px; display: grid; align-content: space-between; gap: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; position: relative; }
+    .ss-artifact--interactive { grid-column: 1 / -1; min-height: 0; }
+    .ss-h5p-shell { min-height: 420px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .ss-h5p-shell iframe { display: block; width: 100%; border: 0; }
+    .ss-h5p-status { margin: 0; padding: 20px; color: var(--muted); text-align: center; }
     .ss-artifact, .ss-artifact * { min-width: 0; }
     .ss-artifact h3, .ss-artifact p, .ss-gallery-head h2, .ss-gallery-head p { overflow-wrap: anywhere; }
     .ss-artifact:nth-child(3n+2),
@@ -148,16 +152,16 @@
 <body>
   <nav class="ss-nav">
     <div class="ss-wrap ss-nav-inner">
-      <a class="ss-brand" href="index.html#top">
+      <a class="ss-brand" href="./index.html#top">
         <strong>Sumanjit Singh</strong>
         <span>Learning / UX / Multimedia</span>
       </a>
       <div class="ss-nav-links">
-        <a href="index.html#top">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="design-explore.html" aria-current="page">Design Explore</a>
-        <a href="cv-me.html">CV Me</a>
-        <a href="contact.html">Contact</a>
+        <a href="./index.html#top">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./design-explore.html" aria-current="page">Design Explore</a>
+        <a href="./cv-me.html">CV Me</a>
+        <a href="./contact.html">Contact</a>
       </div>
     </div>
   </nav>
@@ -181,29 +185,16 @@
         </div>
 
         <div class="ss-artifact-grid">
-          <article class="ss-artifact">
-            <div class="ss-artifact-visual ss-visual-ui" aria-label="Interactive learning activity visual">
-              <div class="ss-interactive-panel">
-                <div class="ss-interactive-card">
-                  <div class="ss-drop-zone">Drop answer</div>
-                  <div class="ss-token-row">
-                    <span class="ss-token"></span>
-                    <span class="ss-token is-selected"></span>
-                    <span class="ss-token"></span>
-                  </div>
-                </div>
-                <div class="ss-feedback-card">
-                  <div class="ss-check-ring"></div>
-                  <div class="ss-feedback-line"></div>
-                  <div class="ss-feedback-line short"></div>
-                </div>
+          <article class="ss-artifact ss-artifact--interactive">
+            <div class="ss-h5p-shell" aria-label="ACHD signs and symptoms interactive book">
+              <div id="achd-h5p">
+                <p class="ss-h5p-status">Loading interactive activity...</p>
               </div>
             </div>
             <div>
-              <p class="ss-artifact-meta">Interactive checks</p>
-              <h3>Knowledge checks and branching interactions</h3>
-              <p>Drag-and-drop tasks, scenario questions, hotspots, short quizzes and embedded practice moments designed to move learners from passive reading into action.</p>
-              <a class="ss-project-link" href="projects.html#social-media">View project</a>
+              <p class="ss-artifact-meta">Interactive activities</p>
+              <h3>ACHD signs and symptoms interactive book</h3>
+              <p>An embedded, self-paced H5P activity that combines clinical information with interactive learning checks.</p>
             </div>
           </article>
 
@@ -232,7 +223,7 @@
               <p class="ss-artifact-meta">Articulate / Rise</p>
               <h3>Microlearning modules and guided lessons</h3>
               <p>Short self-paced modules with clear sections, checks for understanding, visual hierarchy and completion logic for workplace or school learning.</p>
-              <a class="ss-project-link" href="cardiac-decision-lab.html">View project</a>
+              <a class="ss-project-link" href="./cardiac-decision-lab.html">View project</a>
             </div>
           </article>
 
@@ -252,7 +243,7 @@
               <p class="ss-artifact-meta">LMS structure</p>
               <h3>Course shells, activity flows and completion design</h3>
               <p>Reusable LMS layouts, section maps, activity sequencing, certificates, progress conditions and learner-friendly navigation patterns.</p>
-              <a class="ss-project-link" href="projects.html#block-model">View project</a>
+              <a class="ss-project-link" href="./projects.html#block-model">View project</a>
             </div>
           </article>
 
@@ -263,10 +254,10 @@
               </div>
             </div>
             <div>
-              <p class="ss-artifact-meta">Lightboard / editing</p>
+              <p class="ss-artifact-meta">Multimedia</p>
               <h3>Visual explanation videos and supporting media</h3>
               <p>Lightboard resources, short explainers, edited learning clips, captions, thumbnails and visual assets that make complex ideas easier to follow.</p>
-              <a class="ss-project-link" href="projects.html#passport-to-maths">View project</a>
+              <a class="ss-project-link" href="./projects.html#passport-to-maths">View project</a>
             </div>
           </article>
 
@@ -288,7 +279,7 @@
               <p class="ss-artifact-meta">Learning journeys</p>
               <h3>Maps, wireframes and learner pathways</h3>
               <p>Content maps, journey flows, information architecture, student pathways, support prompts and before/after redesign thinking.</p>
-              <a class="ss-project-link" href="projects.html#subject-selection">View project</a>
+              <a class="ss-project-link" href="./projects.html#subject-selection">View project</a>
             </div>
           </article>
 
@@ -319,7 +310,6 @@
               <p class="ss-artifact-meta">Design systems</p>
               <h3>Infographics, icons and learning visuals</h3>
               <p>A visitor-facing icon set for modules, video, LMS pathways, UX flows, accessibility and support, designed to sit beside diagrams, activity visuals and typographic treatments.</p>
-              <a class="ss-project-link" href="projects.html">View projects</a>
             </div>
           </article>
         </div>
@@ -327,18 +317,30 @@
     </section>
   </main>
 
+  <script src="./assets/h5p-player/main.bundle.js"></script>
+  <script>
+    const h5pContainer = document.getElementById("achd-h5p");
+    new H5PStandalone.H5P(h5pContainer, {
+      h5pJsonPath: "./assets/h5p-content/achd-signs-and-symptoms",
+      frameJs: "./assets/h5p-player/frame.bundle.js",
+      frameCss: "./assets/h5p-player/styles/h5p.css"
+    }).catch(function () {
+      h5pContainer.innerHTML = '<p class="ss-h5p-status">The interactive activity could not be loaded. Please view this page through the website server.</p>';
+    });
+  </script>
+
   <footer class="ss-footer">
     <div class="ss-wrap ss-footer-inner">
       <p class="ss-footer-brand">Sumanjit Singh</p>
       <div class="ss-footer-links">
-        <a href="index.html#top">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="design-explore.html">Design Explore</a>
-        <a href="cv-me.html">CV Me</a>
-        <a href="contact.html">Contact</a>
+        <a href="./index.html#top">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./design-explore.html">Design Explore</a>
+        <a href="./cv-me.html">CV Me</a>
+        <a href="./contact.html">Contact</a>
       </div>
     </div>
   </footer>
-  <script src="social-header.js?v=3"></script>
+  <script src="./social-header.js?v=3"></script>
 </body>
 </html>
